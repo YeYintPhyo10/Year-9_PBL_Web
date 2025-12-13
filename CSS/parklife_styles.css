@@ -1,0 +1,371 @@
+:root {
+    --primary-color: #0f3d2e;
+    --secondary-color: #1f5b3f;
+    --accent-color: #f3faf6;
+    --text-color: #0f2a1f;
+    --muted-text: rgba(15,61,46,0.7);
+    --bg-color: #f5fbf3;
+    --highlight-color: #7ec850;
+    --sand-color: #f7f2e9;
+    --border-radius: 12px;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+.main-ctn{
+    padding-top: 150px !important;
+}
+.pl-header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+.pl-header-desc {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--secondary-color);
+    margin-top: 4px;
+}
+.pl-card-panel {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 1px solid rgba(15,61,46,0.08);
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+.pl-card-panel:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+.pl-info-panel {
+    background: var(--sand-color);
+    border: 1px solid rgba(126,200,80,0.2);
+}
+.pl-post-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: #bbb;
+}
+.pl-btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 8px;
+    font-weight: 500;
+    padding: 6px 12px;
+    transition: 0.2s;
+}
+.pl-btn-primary:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(15, 61, 46, 0.4);
+}
+.pl-btn-secondary {
+    border: 1px solid var(--highlight-color);
+    color: var(--highlight-color);
+    background: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+.pl-btn-secondary:hover {
+    background: var(--highlight-color);
+    color: white;
+}
+.pl-input-block {
+    padding: 1.25rem;
+    background-color: var(--accent-color);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-bottom: 2rem;
+    border-left: 4px solid var(--highlight-color);
+}
+.pl-input-label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+}
+.pl-input-block input,
+.pl-input-block textarea {
+    border: 1px solid #ccc;
+    transition: border-color 0.2s;
+}
+.pl-input-block input:focus,
+.pl-input-block textarea:focus {
+    outline: none;
+    border-color: var(--highlight-color);
+}
+.pl-stat-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem 1rem;
+    border: 1px solid var(--highlight-color);
+    box-shadow: 0 4px 10px rgba(126,200,80,0.2);
+    transition: all 0.2s;
+}
+.pl-stat-card:hover {
+    background-color: var(--accent-color);
+}
+.pl-stat-value {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    line-height: 1;
+}
+.pl-stat-label {
+    font-size: 0.9rem;
+    color: #666;
+}
+.pl-streak-box {
+    background: white;
+    border-left: 4px solid var(--highlight-color);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 1rem;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-bottom: 1.5rem;
+}
+.pl-streak-label {
+    font-weight: 700;
+    font-size: 1.125rem;
+}
+.pl-streak-value {
+    color: var(--highlight-color);
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+.pl-section-title,
+.pl-achievement-title,
+.pl-reflection-title,
+.pl-leaderboard-title,
+.pl-community-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+.pl-progress-label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    margin-top: 16px;
+}
+.pl-progress-bg {
+    width: 100%;
+    background: #e5e5e5;
+    border-radius: 999px;
+    height: 12px;
+}
+.pl-progress-bar {
+    height: 12px;
+    border-radius: 999px;
+    box-shadow: 0 2px 4px rgba(126,200,80,0.2);
+    background: var(--highlight-color);
+    transition: width 0.3s;
+    width: 0%;
+}
+.pl-progress-text {
+    text-align: right;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: 8px;
+}
+.pl-log-activities-label,
+.pl-joined-title,
+.pl-challenge-label {
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 0.75rem;
+    margin-top: 1.5rem;
+}
+.pl-activity-list {
+    font-size: 1rem;
+    margin-top: 8px;
+    color: #666;
+    list-style-type: none;
+    padding: 0;
+}
+.pl-activity-item {
+    padding: 8px 0;
+    border-bottom: 1px dashed rgba(15, 61, 46, 0.2);
+}
+.pl-activity-item:last-child {
+    border-bottom: none;
+}
+.pl-empty-log-message {
+    color: #a3a3a3;
+    font-style: italic;
+}
+.pl-activity-name {
+    font-weight: 600;
+}
+.pl-activity-minutes {
+    color: #666;
+}
+.pl-joined-list {
+    color: #666;
+    margin-top: 8px;
+}
+.pl-reflection-label, .pl-goal-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+.pl-reflection-input, .pl-goal-input {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+.pl-goal-feedback {
+    margin-top: 12px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: #1f5b3f;
+}
+.pl-save-btn {
+    font-size: 1.125rem;
+    margin-top: 20px;
+}
+.pl-mood-selector button {
+    border: 1px solid var(--secondary-color);
+    background: white;
+    padding: 12px 10px;
+    border-radius: 10px;
+    transition: 0.2s;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
+}
+.pl-mood-selector button i {
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+}
+.pl-mood-selector button.pl-selected {
+    background: var(--highlight-color);
+    color: white;
+    border-color: var(--highlight-color);
+    box-shadow: 0 2px 5px rgba(126,200,80,0.5);
+}
+.pl-mood-selector button.pl-selected i {
+    color: white;
+}
+.pl-mood-feedback {
+    margin-top: 16px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+.pl-challenge-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    background: white;
+}
+.pl-post-input-box {
+    padding: 15px;
+    border: 2px solid var(--highlight-color);
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 2px 10px rgba(126,200,80,0.1);
+}
+.pl-feed-list {
+    margin-top: 2rem;
+    font-size: 1rem;
+}
+.pl-feed-post {
+    border-left: 4px solid var(--accent-color);
+    padding: 20px;
+    margin: 15px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+.pl-feed-author {
+    font-weight: 700;
+    font-size: 1.125rem;
+    margin-top: 5px !important;
+    margin-bottom: 2px;
+    color: var(--primary-color);
+}
+.pl-feed-text {
+    margin: 0;
+    color: #666;
+}
+.pl-feed-timestamp {
+    display: block;
+    font-size: 0.85rem;
+    color: #a3a3a3;
+    margin-bottom: 6px !important;
+}
+.pl-feed-image {
+    max-width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-top: 8px;
+    border: 1px solid #eee;
+    box-shadow: 0 1px 4px rgba(126,200,80,0.1);
+}
+.pl-hidden {
+    display: none !important;
+}
+.pl-nav-link {
+    border: none;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    border-bottom: 3px solid transparent;
+    color: var(--muted-text);
+    cursor: pointer;
+    transition: all 0.2s;
+    background: none;
+    outline: none;
+}
+.pl-nav-link.pl-active {
+    border-bottom-color: var(--highlight-color);
+    color: var(--primary-color);
+}
+.pl-nav-link:not(.pl-active):hover {
+    color: var(--secondary-color);
+}
+.pl-leaderboard-label {
+    color: var(--secondary-color);
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+.pl-top-performers-list {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+.pl-top-performer-name {
+    font-weight: 700;
+    font-size: 1rem;
+}
+.pl-top-performer-score {
+    color: #888;
+}
+.pl-user-rank, .pl-user-score {
+    color: #60c352;
+    font-weight: 700;
+}
+.pl-post-input, .pl-share-image-btn, .pl-post-btn {
+    font-size: 0.96rem;
+}
+/* Utility classes for hiding elements */
+.pl-hidden {
+    display: none !important;
+}
