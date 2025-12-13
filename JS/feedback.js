@@ -5,45 +5,45 @@ const feedbackData = [
         name: "Ko Myo",
         rating: 5,
         text: "The new meditation garden is absolutely beautiful. It has become my favorite spot for morning mindfulness sessions. The sound of the water feature is so calming.",
-        category: "greenery",
+        category: "Accessibility",
         date: "2025-10-15",
-        tags: ["Meditation", "Wellbeing", "Nature Sounds"]
+        tags: ["Accessibility", "Positive Experience", "Park Revitalization"]
     },
     {
         id: 2,
         name: "Phyu Phyu",
         rating: 4,
         text: "Love the new walking paths! They're much more accessible for strollers and wheelchairs. Would love to see more shaded areas along the paths for hot days.",
-        category: "accessibility",
+        category: "General Experience",
         date: "2025-10-14",
-        tags: ["Walking Paths", "Accessibility", "Shade"]
+        tags: ["General Experience", "Mixed Experience", "General Experience"]
     },
     {
         id: 3,
         name: "Thida",
         rating: 5,
         text: "The community garden initiative is fantastic. My kids love planting seeds and watching them grow. It's a wonderful way to connect with nature and neighbors.",
-        category: "accessibility",
+        category: "General Experience",
         date: "2025-10-12",
-        tags: ["Community Garden", "accessibility",]
+        tags: ["General Experience", "Positive Experience", "Community Feedback"]
     },
     {
         id: 4,
         name: "Tha Zin",
         rating: 3,
         text: "The park is beautiful but needs more trash bins, especially near picnic areas. I noticed some litter that could be prevented with better placement of bins.",
-        category: "Personal Well-being",
+        category: "General Experience",
         date: "2025-10-10",
-        tags: ["Well-being", "Guidences", "Peaceful Environment"]
+        tags: ["General Experience", "Positive Experience", "General Experience"]
     },
     {
         id: 5,
         name: "Wai Lynn",
         rating: 4,
         text: "The new fitness stations are great addition. As someone who enjoys outdoor workouts, I appreciate the variety of equipment available.",
-        category: "facilities",
+        category: "General Experience",
         date: "2025-10-08",
-        tags: ["Fitness Stations", "Outdoor Workout", "Health"]
+        tags: ["General Experience", "Mixed Experience", "Community Feedback"]
     }
 ];
 
@@ -369,9 +369,9 @@ setTimeout(() => {
             name: "Kyaw Swar",
             rating: 5,
             text: "The new native plant garden is stunning! It's wonderful to see local flora thriving and attracting pollinators. This revitalization project truly enhances community wellbeing.",
-            category: "greenery",
+            category: "Health Education",
             date: new Date().toISOString().split('T')[0],
-            tags: ["General Experience", "Guidences", "Health Education"]
+            tags: ["General Experience", "Positive Experience", "Health Education"]
         };
 
         feedbackData.unshift(sampleFeedback);
