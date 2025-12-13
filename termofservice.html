@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step By Park / Terms of Service</title>
+    <meta name="description" content="Terms of Service for our park revitalization and personal well-being connection platform">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="shortcut icon" href="Img/logo_circle.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Palette & Brand */
+            --primary-color: #0f3d2e;
+            --secondary-color: #1f5b3f;
+            --accent-color: #f3faf6;
+            --text-color: #0f2a1f;
+            --muted-text: rgba(15, 61, 46, 0.7);
+            --bg-color: #f5fbf3;
+            --highlight-color: #7ec850;
+            --soft-highlight: rgba(126, 200, 80, 0.15);
+            --sand-color: #f7f2e9;
+            --dark-green: #0b271d;
+
+            /* Layout & Misc */
+            --nav-bg: rgba(245, 251, 243, 0.9);
+            --border-radius: 50px;
+            --nav-item-padding: 12px 20px;
+            --border-color: rgba(31, 91, 63, 0.15);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        /* Header Styles */
+        .main-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 100px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .header-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Floating Elements Animation */
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--soft-highlight);
+            z-index: 0;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--highlight-color);
+            border-radius: 2px;
+        }
+
+        /* TOC Navigation */
+        .toc-container {
+            position: sticky;
+            top: 30px;
+            background-color: var(--accent-color);
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(15, 61, 46, 0.08);
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        .toc-title {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .toc-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .toc-item {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .toc-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 6px;
+            height: 6px;
+            background-color: var(--highlight-color);
+            border-radius: 50%;
+        }
+
+        .toc-link {
+            color: var(--text-color);
+            text-decoration: none;
+            transition: var(--transition);
+            display: block;
+            padding: 8px 15px;
+            border-radius: 10px;
+        }
+
+        .toc-link:hover {
+            color: var(--secondary-color);
+            background-color: var(--soft-highlight);
+            transform: translateX(5px);
+        }
+
+        /* Terms Content */
+        .terms-card {
+            background-color: white;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(15, 61, 46, 0.08);
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .terms-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(15, 61, 46, 0.12);
+        }
+
+        .terms-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--highlight-color);
+            border-radius: 0 5px 5px 0;
+        }
+
+        .terms-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .terms-card h3 i {
+            color: var(--highlight-color);
+            font-size: 1.5rem;
+        }
+
+        .terms-content {
+            color: var(--muted-text);
+        }
+
+        .terms-content p {
+            margin-bottom: 15px;
+        }
+
+        .terms-content ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .terms-content li {
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .terms-content li::before {
+            content: '•';
+            color: var(--highlight-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        /* Interactive Elements */
+        .interactive-highlight {
+            background-color: var(--soft-highlight);
+            padding: 3px 8px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .interactive-highlight:hover {
+            background-color: rgba(126, 200, 80, 0.25);
+        }
+
+        .highlight-tooltip {
+            position: absolute;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            width: 250px;
+            z-index: 100;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            bottom: 100%;
+            left: 0;
+            margin-bottom: 10px;
+        }
+
+        .interactive-highlight:hover .highlight-tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Accordion for Mobile */
+        .accordion-button {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            font-weight: 600;
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .accordion-button:not(.collapsed) {
+            background-color: var(--soft-highlight);
+            color: var(--primary-color);
+            box-shadow: none;
+        }
+
+        .accordion-button:focus {
+            box-shadow: 0 0 0 0.25rem rgba(126, 200, 80, 0.25);
+        }
+
+        /* Progress Indicator */
+        .progress-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background-color: var(--highlight-color);
+            z-index: 9999;
+            transition: width 0.3s ease;
+        }
+
+        /* Footer */
+        .main-footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo span {
+            color: var(--highlight-color);
+        }
+
+        .footer-description {
+            opacity: 0.8;
+            margin-bottom: 30px;
+            max-width: 300px;
+        }
+
+        .footer-links h5 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--highlight-color);
+            padding-left: 5px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--highlight-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(15, 61, 46, 0.3);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .header-title {
+                font-size: 2.5rem;
+            }
+            
+            .toc-container {
+                position: static;
+                margin-bottom: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 2rem;
+            }
+            
+            .terms-card {
+                padding: 25px;
+            }
+            
+            .content-section {
+                padding: 50px 0;
+            }
+        }
+
+        /* Animation for cards on scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+         /* Custom scrollbar */
+            ::-webkit-scrollbar {
+            width: 10px;
+            }
+            ::-webkit-scrollbar-track {
+            background: var(--accent-color);
+            }
+            ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 5px;
+            }
+            ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-color);
+            }
+    </style>
+</head>
+<body>
+    <!-- Progress Indicator -->
+    <div class="progress-indicator" id="progressIndicator"></div>
+    
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+    
+    <!-- Header -->
+    <header class="main-header">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        
+        <div class="container header-content">
+            <div class="row">
+                <div class="col-lg-10 mx-auto text-center">
+                    <h1 class="header-title mb-4">Terms of Service</h1>
+                    <p class="header-subtitle">Welcome to our platform dedicated to revitalizing local parks and fostering connections between community green spaces and personal well-being. Please read these terms carefully before using our services.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="content-section">
+            <div class="container">
+                <div class="row">
+                    <!-- Table of Contents -->
+                    <div class="col-lg-4">
+                        <div class="toc-container">
+                            <h3 class="toc-title"><i class="fas fa-list-ol"></i> Table of Contents</h3>
+                            <ul class="toc-list" id="tocList">
+                                <!-- TOC will be populated by JavaScript -->
+                            </ul>
+                            
+                            <div class="mt-4">
+                                <div class="alert alert-success" role="alert">
+                                    <h5><i class="fas fa-leaf me-2"></i> Our Mission</h5>
+                                    <p class="mb-0">We're committed to connecting communities with their local parks to enhance personal and environmental well-being.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Terms Content -->
+                    <div class="col-lg-8">
+                        <h2 class="section-title mb-4">Terms & Conditions</h2>
+                        
+                        <!-- Introduction -->
+                        <div class="terms-card fade-in" id="introduction">
+                            <h3><i class="fas fa-seedling"></i> Introduction & Acceptance</h3>
+                            <div class="terms-content">
+                                <p>These Terms of Service ("Terms") govern your access to and use of our website, services, and applications (collectively, the "Services") provided by ParkRevive Inc. ("we", "us", or "our").</p>
+                                <p>By accessing or using our Services, you agree to be bound by these Terms. If you do not agree to these Terms, you may not access or use the Services.</p>
+                                <p>Our Services are designed to connect communities with local parks, facilitate park revitalization projects, and promote personal well-being through nature engagement.</p>
+                                
+                                <div class="mt-4">
+                                    <p class="mb-1"><strong>Key Points:</strong></p>
+                                    <ul>
+                                        <li>You must be at least 13 years old to use our Services</li>
+                                        <li>You are responsible for your account and all activity under it</li>
+                                        <li>We may modify these Terms at any time with notice</li>
+                                        <li>Your continued use constitutes acceptance of modified Terms</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- User Accounts -->
+                        <div class="terms-card fade-in" id="accounts">
+                            <h3><i class="fas fa-user-check"></i> User Accounts & Responsibilities</h3>
+                            <div class="terms-content">
+                                <p>To access certain features of our Services, you may be required to create an account. You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.</p>
+                                
+                                <p>When creating an account, you agree to:</p>
+                                <ul>
+                                    <li>Provide accurate, current, and complete information</li>
+                                    <li>Maintain and promptly update your account information</li>
+                                    <li>Keep your password secure and confidential</li>
+                                    <li>Notify us immediately of any unauthorized use of your account</li>
+                                    <li>Accept responsibility for all activities that occur under your account</li>
+                                </ul>
+                                
+                                <p>We reserve the right to disable any user account at our sole discretion if we believe you have violated these Terms or any applicable laws.</p>
+                                
+                                <div class="mt-3 interactive-highlight">
+                                    Community Guidelines
+                                    <div class="highlight-tooltip">
+                                        Our community guidelines promote respectful engagement, environmental stewardship, and positive interactions between all park enthusiasts.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Park Projects -->
+                        <div class="terms-card fade-in" id="projects">
+                            <h3><i class="fas fa-tree"></i> Park Revitalization Projects</h3>
+                            <div class="terms-content">
+                                <p>Our platform facilitates community-led park revitalization projects. By participating in these projects, you agree to the following:</p>
+                                
+                                <ul>
+                                    <li><strong>Safety First:</strong> Always prioritize personal and community safety during park activities</li>
+                                    <li><strong>Respect Public Property:</strong> Follow all park rules and regulations</li>
+                                    <li><strong>Environmental Stewardship:</strong> Leave parks better than you found them</li>
+                                    <li><strong>Community Collaboration:</strong> Work cooperatively with other volunteers and park officials</li>
+                                    <li><strong>Liability Acknowledgement:</strong> You participate at your own risk and are responsible for your own safety</li>
+                                </ul>
+                                
+                                <p>We provide tools and resources to organize park cleanups, tree plantings, community gardens, and other revitalization activities. However, we are not responsible for the execution or outcomes of these projects.</p>
+                                
+                                <div class="alert alert-warning mt-3">
+                                    <i class="fas fa-exclamation-triangle me-2"></i>
+                                    <strong>Important:</strong> Always obtain proper permits and permissions from local authorities before undertaking any park improvement projects.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Content Guidelines -->
+                        <div class="terms-card fade-in" id="content">
+                            <h3><i class="fas fa-camera"></i> Content Guidelines & Ownership</h3>
+                            <div class="terms-content">
+                                <p>Our Services allow you to post, link, store, share, and otherwise make available certain information, text, graphics, videos, or other material ("Content").</p>
+                                
+                                <p>You retain ownership of your Content, but by posting Content to our Services, you grant us a worldwide, non-exclusive, royalty-free license to use, reproduce, adapt, publish, and display such Content for the purpose of operating and improving our Services.</p>
+                                
+                                <p>You are responsible for the Content you post, including its legality, reliability, and appropriateness. You agree not to post Content that:</p>
+                                
+                                <ul>
+                                    <li>Violates any third-party right, including copyright, trademark, privacy, or publicity rights</li>
+                                    <li>Is unlawful, harmful, threatening, abusive, harassing, defamatory, or otherwise objectionable</li>
+                                    <li>Contains viruses or any other malicious code designed to interrupt or damage our Services</li>
+                                    <li>Impersonates any person or entity or misrepresents your affiliation with any person or entity</li>
+                                </ul>
+                                
+                                <div class="interactive-highlight">
+                                    Photo Sharing Best Practices
+                                    <div class="highlight-tooltip">
+                                        When sharing park photos, include location information, describe the activity, and tag relevant community partners to maximize engagement and impact.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Privacy & Data -->
+                        <div class="terms-card fade-in" id="privacy">
+                            <h3><i class="fas fa-shield-alt"></i> Privacy & Data Protection</h3>
+                            <div class="terms-content">
+                                <p>Your privacy is important to us. Our <a href="#" class="text-decoration-none" style="color: var(--secondary-color);">Privacy Policy</a> explains how we collect, use, and protect your personal information.</p>
+                                
+                                <p>By using our Services, you consent to the collection and use of your information as described in our Privacy Policy, including:</p>
+                                
+                                <ul>
+                                    <li><strong>Personal Information:</strong> Name, email address, and location data you provide</li>
+                                    <li><strong>Usage Data:</strong> Information about how you interact with our Services</li>
+                                    <li><strong>Park Activity Data:</strong> Information about your park visits and participation in revitalization projects</li>
+                                    <li><strong>Well-being Metrics:</strong> Optional information about your engagement with nature and its impact on your well-being</li>
+                                </ul>
+                                
+                                <p>We use this data to improve our Services, personalize your experience, and measure the impact of park revitalization on community well-being.</p>
+                                
+                                <div class="mt-3 interactive-highlight">
+                                    Data Anonymization
+                                    <div class="highlight-tooltip">
+                                        For research purposes, we may anonymize and aggregate user data to study patterns in park usage and well-being correlations. Individual data is never shared without consent.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Well-being Features -->
+                        <div class="terms-card fade-in" id="wellbeing">
+                            <h3><i class="fas fa-heart"></i> Well-being Features & Disclaimers</h3>
+                            <div class="terms-content">
+                                <p>Our Services include features designed to promote personal well-being through connection with nature and community parks. These features include:</p>
+                                
+                                <ul>
+                                    <li>Well-being tracking and journaling tools</li>
+                                    <li>Nature engagement challenges and goals</li>
+                                    <li>Community support and sharing features</li>
+                                    <li>Educational resources about the benefits of nature engagement</li>
+                                </ul>
+                                
+                                <p><strong>Important Disclaimer:</strong> Our well-being features are for informational and motivational purposes only. They are not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.</p>
+                                
+                                <p>We do not claim that park activities or use of our Services will guarantee improved well-being. Individual results may vary based on personal circumstances and engagement levels.</p>
+                                
+                                <div class="alert alert-info mt-3">
+                                    <i class="fas fa-heartbeat me-2"></i>
+                                    <strong>Well-being is Personal:</strong> Our tools are designed to support your journey, but your experience with nature and community is unique to you.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Termination -->
+                        <div class="terms-card fade-in" id="termination">
+                            <h3><i class="fas fa-ban"></i> Termination & Suspension</h3>
+                            <div class="terms-content">
+                                <p>We may terminate or suspend your account and access to our Services immediately, without prior notice or liability, for any reason, including if you breach these Terms.</p>
+                                
+                                <p>Upon termination, your right to use the Services will immediately cease. If you wish to terminate your account, you may simply discontinue using the Services or contact us to request account deletion.</p>
+                                
+                                <p>All provisions of these Terms which by their nature should survive termination shall survive termination, including ownership provisions, warranty disclaimers, indemnity, and limitations of liability.</p>
+                                
+                                <div class="mt-3">
+                                    <p><strong>Content Preservation:</strong> Upon termination, we may retain your Content for a reasonable period for backup, archival, or audit purposes, or as required by law.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        <!-- Acceptance Button -->
+                        <div class="text-center mt-5">
+                            <button class="btn btn-lg" id="acceptButton" style="background-color: var(--highlight-color); color: white; padding: 15px 40px; border-radius: var(--border-radius);">
+                                <i class="fas fa-check-circle me-2"></i> I Accept These Terms
+                            </button>
+                            <p class="text-muted mt-3">By clicking "I Accept These Terms", you acknowledge that you have read, understood, and agree to be bound by these Terms of Service.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Define data at the beginning
+        const tocSections = [
+            { "id": "introduction", "title": "Introduction & Acceptance", "icon": "fa-seedling" },
+            { "id": "accounts", "title": "User Accounts", "icon": "fa-user-check" },
+            { "id": "projects", "title": "Park Projects", "icon": "fa-tree" },
+            { "id": "content", "title": "Content Guidelines", "icon": "fa-camera" },
+            { "id": "privacy", "title": "Privacy & Data", "icon": "fa-shield-alt" },
+            { "id": "wellbeing", "title": "Well-being Features", "icon": "fa-heart" },
+            { "id": "termination", "title": "Termination", "icon": "fa-ban" },
+        ];
+        
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Populate Table of Contents
+            const tocList = document.getElementById('tocList');
+            tocSections.forEach(section => {
+                const tocItem = document.createElement('li');
+                tocItem.className = 'toc-item';
+                tocItem.innerHTML = `
+                    <a href="#${section.id}" class="toc-link">
+                        <i class="fas ${section.icon} me-2"></i>${section.title}
+                    </a>
+                `;
+                tocList.appendChild(tocItem);
+            });
+            
+            // Smooth scrolling for TOC links
+            document.querySelectorAll('.toc-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Add visual feedback
+                        this.style.backgroundColor = 'var(--soft-highlight)';
+                        setTimeout(() => {
+                            this.style.backgroundColor = '';
+                        }, 1000);
+                    }
+                });
+            });
+            
+            // Accept Terms Button
+            const acceptButton = document.getElementById('acceptButton');
+            acceptButton.addEventListener('click', function() {
+                // Create a confirmation modal
+                const modal = document.createElement('div');
+                modal.className = 'modal fade';
+                modal.id = 'acceptModal';
+                modal.innerHTML = `
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content" style="border-radius: 20px; overflow: hidden;">
+                            <div class="modal-header" style="background-color: var(--primary-color); color: white;">
+                                <h5 class="modal-title"><i class="fas fa-check-circle me-2"></i>Accept Terms of Service</h5>
+                                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <p>By accepting these Terms of Service, you agree to:</p>
+                                <ul>
+                                    <li>Comply with all park rules and regulations</li>
+                                    <li>Respect other community members</li>
+                                    <li>Use our platform responsibly</li>
+                                    <li>Prioritize safety in all park activities</li>
+                                    <li>Contribute positively to park revitalization efforts</li>
+                                </ul>
+                                <div class="alert alert-success mt-3">
+                                    <i class="fas fa-leaf me-2"></i>
+                                    <strong>Thank you for joining our community!</strong> Together we can make our parks greener and our communities healthier.
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Review Again</button>
+                                <button type="button" class="btn btn-success" id="confirmAccept" style="background-color: var(--highlight-color); border-color: var(--highlight-color);">I Accept & Continue</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                document.body.appendChild(modal);
+                
+                // Initialize Bootstrap modal
+                const acceptModal = new bootstrap.Modal(modal);
+                acceptModal.show();
+                
+                // Handle confirmation
+                document.getElementById('confirmAccept').addEventListener('click', function() {
+                    acceptButton.innerHTML = '<i class="fas fa-check-circle me-2"></i> Terms Accepted';
+                    acceptButton.style.backgroundColor = 'var(--secondary-color)';
+                    acceptButton.disabled = true;
+                    
+                    // Show success message
+                    const successAlert = document.createElement('div');
+                    successAlert.className = 'alert alert-success alert-dismissible fade show position-fixed top-0 start-50 translate-middle-x mt-3';
+                    successAlert.style.zIndex = '9999';
+                    successAlert.innerHTML = `
+                        <i class="fas fa-check-circle me-2"></i>
+                        <strong>Success!</strong> You have accepted the Terms of Service. Welcome to our community!
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    `;
+                    document.body.appendChild(successAlert);
+                    
+                    // Auto-dismiss after 5 seconds
+                    setTimeout(() => {
+                        const bsAlert = new bootstrap.Alert(successAlert);
+                        bsAlert.close();
+                    }, 5000);
+                    
+                    acceptModal.hide();
+                });
+                
+                // Remove modal from DOM after hiding
+                modal.addEventListener('hidden.bs.modal', function() {
+                    document.body.removeChild(modal);
+                });
+            });
+            
+            // Back to Top Button
+            const backToTop = document.getElementById('backToTop');
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('show');
+                } else {
+                    backToTop.classList.remove('show');
+                }
+                
+                // Update progress indicator
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                document.getElementById('progressIndicator').style.width = scrolled + "%";
+            });
+            
+            // Scroll to top when clicked
+            backToTop.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Animate elements on scroll
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const fadeInOnScroll = function() {
+                fadeElements.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        element.classList.add('visible');
+                    }
+                });
+            };
+            
+            // Check on load and scroll
+            fadeInOnScroll();
+            window.addEventListener('scroll', fadeInOnScroll);
+            
+            // Interactive highlights
+            const interactiveHighlights = document.querySelectorAll('.interactive-highlight');
+            interactiveHighlights.forEach(highlight => {
+                highlight.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                });
+                
+                highlight.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+            
+            // Add floating animation to terms cards on hover
+            const termsCards = document.querySelectorAll('.terms-card');
+            termsCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Initialize all animations
+            setTimeout(fadeInOnScroll, 100);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Step By Park / About Us</title>
+        <!-- Bootstrap 5 CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Font Awesome for icons -->
+        <script src="https://kit.fontawesome.com/b3928d282b.js" crossorigin="anonymous"></script>
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+        <!-- External Css -->
+        <link rel="shortcut icon" href="Img/logo_circle.ico" type="image/x-icon">
+        <link rel="stylesheet" href="CSS/style.css">
+        <link rel="stylesheet" href="CSS/feedback.css">
+        <link rel="stylesheet" href="CSS/footer.css">
+        <link rel="stylesheet" href="CSS/style_abt_us2.css">
+        <link rel="stylesheet" href="CSS/style_abtus.css">
+    </head>
+    <body>
+        <!--<div class="loading-screen" id="loadingScreen">
+            <div class="loading-content">
+                <div class="loading-spinner"></div>
+                <div class="loading-logo">
+                    <i class="fas fa-leaf"></i>
+                    <span>Step By Park</span>
+                </div>
+            </div>
+            </div>-->
+        <!-- Animated Background -->
+        <div class="bg-animation"></div>
+        <div class="background-grid"></div>
+        <div class="floating-leaf leaf-1"></div>
+        <div class="floating-leaf leaf-2"></div>
+        <!-- Navigation -->
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg fixed-top bg-white shadow-sm">
+            <div class="container-fluid nav-ctn">
+                <a class="navbar-brand" href="account.html">
+                    <img src="Img/logo_stepbypark.png" class="logo" alt="step_by_park">
+                </a>
+                <!-- Mobile Toggle Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Desktop Menu -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="account.html">
+                            <i class="fas fa-leaf me-2 pages-nav"></i> Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="account_about_us.html">
+                            <i class="fas fa-seedling me-2 pages-nav"></i> About Us</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="activityHubDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-route me-2 pages-nav"></i>Activity Hub <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="activityHubDropdown">
+                                <li><a class="dropdown-item" href="account_fitnessandmindfulness.html">Fitness and Mindfulness</a></li>
+                                <li><a class="dropdown-item" href="account_ecochallenges.html">Eco Challenges</a></li>
+                                <li><a class="dropdown-item" href="account_toolsandtrackers.html">Tools and Trackers</a></li>
+                                <li><a class="dropdown-item" href="account_parklife.html">Community Board</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="account_contact_us.html">
+                            <i class="fas fa-calendar-week me-2 pages-nav"></i> Contact Us</a>
+                        </li>
+                        <li class="nav-item dropdown ms-lg-4 mt-3 mt-lg-0">
+                            <a class="btn btn-primary dropdown-toggle d-flex align-items-center shadow-sm"
+                                href="#"
+                                id="accountDropdown"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <h6 class="mb-0 fw-bold" id="displayNameText">User</h6>
+                                <i class="fas fa-user ms-2"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end custom-acc-dropdown" aria-labelledby="accountDropdown">
+                                <li><a class="dropdown-item" href="setting.html"><i class="fas fa-cog me-2"></i>Settings</a></li>
+                                <li>
+                                        <a class="dropdown-item" href="#" id="switchUserBtnMobile">
+                                            <i class="fas fa-right-left me-2"></i>Switch User
+                                        </a>
+                                    </li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item text-danger" href="#" id="logoutBtn"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Mobile Offcanvas Menu -->
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                            <i class="fas fa-leaf me-2"></i>Step By Park
+                        </h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="account.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="account_about_us.html">About</a>
+                            </li>
+                            <!-- Dropdown/Accordion -->
+                            <li class="nav-item">
+                                <button class="nav-link d-flex justify-content-between align-items-center w-100"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#mobileDropdown"
+                                    aria-expanded="false"
+                                    aria-controls="mobileDropdown">
+                                Activity Hub
+                                <i class="fas fa-chevron-down ms-2"></i>
+                                </button>
+                                <div class="collapse" id="mobileDropdown">
+                                    <ul class="navbar-nav ps-3">
+                                        <li><a class="nav-link" href="account_fitnessandmindfulness.html">Fitness and Mindfulness</a></li>
+                                        <li><a class="nav-link" href="account_ecochallenges.html">Eco Challenges</a></li>
+                                        <li><a class="nav-link" href="account_toolsandtrackers.html">Tools and Trackers</a></li>
+                                        <li><a class="nav-link" href="account_parklife.html">Community Board</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="account_contact_us.html">Contact</a>
+                            </li>
+                            <li class="nav-item dropdown ms-lg-4 mt-3 mt-lg-0">
+                                <a class="btn btn-primary dropdown-toggle d-flex align-items-center shadow-sm"
+                                href="#"
+                                id="accountDropdown"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <h6 class="mb-0 fw-bold" id="offcanvasUsername">User</h6>
+                                <i class="fas fa-user ms-2"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end custom-acc-dropdown" aria-labelledby="accountDropdown">
+                                    <li><a class="dropdown-item" href="setting.html"><i class="fas fa-cog me-2"></i>Settings</a></li>
+                                    <li><a class="dropdown-item" href="#" id="switchUserBtn"><i class="fas fa-right-left me-2"></i>Switch User</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item text-danger" href="#" id="logoutBtn"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- Account Modal (Sign In / Sign Up) -->
+        <div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body" style="border-radius: 25px;">
+                        <div class="auth-card">
+                            <!-- Header -->
+                            <div class="auth-header">
+                                <div class="logo_modal">
+                                    <i class="fas fa-leaf"></i>
+                                    GreenSpace
+                                </div>
+                                <p class="auth-subtitle">Join our sustainable community</p>
+                            </div>
+                            <!-- Tabs -->
+                            <div class="auth-tabs">
+                                <button class="auth-tab " data-tab="login">Sign In</button>
+                                <button class="auth-tab" data-tab="signup">Create Account</button>
+                                <div class="tab-indicator" id="tabIndicator"></div>
+                            </div>
+                            <!-- Forms Container -->
+                            <div class="auth-content">
+                                <!-- Login Form -->
+                                <form id="loginForm" class="auth-form ">
+                                    <div class="form-group">
+                                        <label class="form-label">Email Address</label>
+                                        <div class="input-with-icon">
+                                            <i class="fas fa-envelope input-icon"></i>
+                                            <input type="email" class="form-control" id="loginEmail" placeholder="you@example.com" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Password</label>
+                                        <div class="input-with-icon">
+                                            <i class="fas fa-lock input-icon"></i>
+                                            <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
+                                            <button type="button" class="password-toggle" data-target="loginPassword">
+                                            <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="remember-forgot">
+                                        <label class="checkbox-label">
+                                            <div class="custom-checkbox" data-checkbox="remember">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            Remember me
+                                        </label>
+                                        <a href="#" class="forgot-link">Forgot password?</a>
+                                    </div>
+                                    <button type="submit" class="auth-btn">Sign In</button>
+                                    <div class="divider"><span>Or continue with</span></div>
+                                    <div class="social-auth">
+                                        <button type="button" class="social-btn google"><i class="fab fa-google"></i></button>
+                                        <button type="button" class="social-btn facebook"><i class="fab fa-facebook-f"></i></button>
+                                        <button type="button" class="social-btn twitter"><i class="fa-brands fa-x-twitter"></i></button>
+                                    </div>
+                                    <div class="auth-footer">
+                                        Don't have an account? <a href="#" class="switch-link" data-switch="signup">Sign up</a>
+                                    </div>
+                                </form>
+                                <!-- Signup Form -->
+                                <form id="signupForm" class="auth-form">
+                                    <div class="form-group">
+                                        <label class="form-label">Full Name</label>
+                                        <div class="input-with-icon">
+                                            <i class="fas fa-user input-icon"></i>
+                                            <input type="text" class="form-control" id="signupName" placeholder="John Doe" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Email Address</label>
+                                        <div class="input-with-icon">
+                                            <i class="fas fa-envelope input-icon"></i>
+                                            <input type="email" class="form-control" id="signupEmail" placeholder="you@example.com" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Password</label>
+                                        <div class="input-with-icon">
+                                            <i class="fas fa-lock input-icon"></i>
+                                            <input type="password" class="form-control" id="signupPassword" placeholder="Create a strong password" required>
+                                            <button type="button" class="password-toggle" data-target="signupPassword">
+                                            <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Confirm Password</label>
+                                        <div class="input-with-icon">
+                                            <i class="fas fa-lock input-icon"></i>
+                                            <input type="password" class="form-control" id="signupConfirmPassword" placeholder="Confirm your password" required>
+                                            <button type="button" class="password-toggle" data-target="signupConfirmPassword">
+                                            <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="terms-checkbox">
+                                        <label class="checkbox-label">
+                                            <div class="custom-checkbox" data-checkbox="terms">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <span class="terms-text">
+                                            I agree to the 
+                                            <a href="#" class="terms-link">Terms of Service</a> and
+                                            <a href="#" class="terms-link">Privacy Policy</a>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <button type="submit" class="auth-btn">Create Account</button>
+                                    <div class="divider"><span>Or sign up with</span></div>
+                                    <div class="social-auth">
+                                        <button type="button" class="social-btn google"><i class="fab fa-google"></i></button>
+                                        <button type="button" class="social-btn facebook"><i class="fab fa-facebook-f"></i></button>
+                                        <button type="button" class="social-btn twitter"><i class="fa-brands fa-x-twitter"></i></button>
+                                    </div>
+                                    <div class="auth-footer">
+                                        Already have an account? <a href="#" class="switch-link" data-switch="login">Sign in</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Hero Section -->
+        <section class="pri-hero-section" id="home">
+            <div class="pri-floating-element"></div>
+            <div class="pri-floating-element"></div>
+            <div class="pri-floating-element"></div>
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6 pri-hero-content">
+                        <h1 class="pri-hero-title">Revitalizing Parks, Nurturing Well-being</h1>
+                        <p class="pri-hero-subtitle">
+                            We are a passionate team of 4 dedicated to transforming local parks into vibrant community hubs 
+                            that foster personal well-being and environmental stewardship.
+                        </p>
+                        <a href="#visit" class="btn btn-primary">
+                            Plan a Visit
+                            <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="position-relative">
+                            <img src="Img/pan chan.jpg" alt="Beautiful park landscape" class="img-fluid rounded-4 shadow-lg" loading="lazy">
+                            <div class="position-absolute bottom-0 start-0 bg-white p-3 rounded-3 m-3 shadow">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-success rounded-circle p-2 me-2">
+                                        <i class="fas fa-users text-white"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-0">4 Dedicated Members</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- HERO SECTION -->
+        <div class="hero" id="visit">
+            <!-- Falling Leaves -->
+            <img src="Img_aboutus/Leaf.png" class="leaf">
+            <!-- Slider Header -->
+            <div class="slider-header">
+                <h2>Explore Park Activities</h2>
+            </div>
+            <!-- Image Slider -->
+            <div class="slider">
+                <button class="arrow prev" id="prevBtn">❮</button>
+                <div class="slides" id="slidesWrap">
+                    <div class="slide" style="background-image:url('Img_aboutus/play.jpeg')"></div>
+                    <div class="slide" style="background-image:url('Img_aboutus/planting.jpeg')"></div>
+                    <div class="slide" style="background-image:url('Img_aboutus/yoga.jpeg')"></div>
+                    <div class="slide" style="background-image:url('Img_aboutus/park.jpeg')"></div>
+                    <div class="slide" style="background-image:url('Img_aboutus/running.jpeg')"></div>
+                </div>
+                <button class="arrow next" id="nextBtn">❯</button>
+            </div>
+        </div>
+        <!-- TEAM SECTION -->
+        <section class="team-section">
+            <h1 class="team-title">Meet Our Team</h1>
+            <div class="team-container">
+                <div class="team-card">
+                    <img src="Img/yyp.jpg" alt="Ye Yint Phyo">
+                    <div class="team-info">
+                        <h3>Ye Yint Phyo</h3>
+                        <p>Student</p>
+                        <div class="social-icons-abtus">
+                            <a href="https://www.instagram.com/yeyintt_phyo?igsh=MW1pNmZncnRqM3huMg=="><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/ye.y.phyo.58118/about"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://discordapp.com/users/813777601889697872"><i class="fa-brands fa-discord"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="Img/zwh.jpg" alt="Zon Wint Htel">
+                    <div class="team-info">
+                        <h3>Zon Wint Htel</h3>
+                        <p>Student</p>
+                        <div class="social-icons-abtus">
+                            <a href="https://www.instagram.com/babe_parkchaeyonh?igsh=YjJrNG9ob3Z0dTUy&utm_source=qr"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/emilia.zon.7731?mibextid=wwXIfr&mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://discordapp.com/users/1337771103053152370"><i class="fa-brands fa-discord"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="Img/psto.jpg" alt="Pyae Shin Thant Oo">
+                    <div class="team-info">
+                        <h3>Pyae Shin Thant Oo</h3>
+                        <p>Student</p>
+                        <div class="social-icons-abtus">
+                            <a href="https://www.instagram.com/natehiggerssm?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/pyae.shinthantoo"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://discordapp.com/users/1037220290561843210"><i class="fa-brands fa-discord"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="Img/ses.jpg" alt="Shin Eain San">
+                    <div class="team-info">
+                        <h3>Shin Eain San</h3>
+                        <p>Student</p>
+                        <div class="social-icons-abtus">
+                            <a href="https://www.instagram.com/elenapark72/"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.facebook.com/eain.caskey"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://discord.com/users/951341609360965733"><i class="fa-brands fa-discord"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="park-journey">
+            <div class="journey-container">
+                <div class="path-line"></div>
+                <div class="journey-item">
+                    <div class="journey-visual">
+                        <div class="img-frame blob-1">
+                            <img src="Img_aboutus/mission.jpeg" alt="Mission Context">
+                        </div>
+                    </div>
+                    <div class="journey-content glass-card" id="mission-card">
+                        <div class="icon-box">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 22h20"></path>
+                                <path d="M12 22v-9"></path>
+                                <path d="M9 13c-2.5 0-4.5-2-4.5-4.5S6.5 4 9 4s4.5 2 4.5 4.5c0 1.5-1 3.5-3.5 4.5"></path>
+                                <path d="M15 13c2.5 0 4.5-2 4.5-4.5S17.5 4 15 4s-4.5 2-4.5 4.5c0 1.5 1 3.5 3.5 4.5"></path>
+                            </svg>
+                        </div>
+                        <span class="number-watermark">01</span>
+                        <h2>Our Mission</h2>
+                        <p>To create a safe, accessible, and engaging digital platform that inspires local park visitors to embrace healthier lifestyles. We aim to empower every individual with personalized guidance.</p>
+                    </div>
+                </div>
+                <div class="journey-item reverse">
+                    <div class="journey-visual">
+                        <div class="img-frame blob-2">
+                            <img src="Img_aboutus/vision.jpeg" alt="Vision Context">
+                        </div>
+                    </div>
+                    <div class="journey-content glass-card" id="vision-card">
+                        <div class="icon-box">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="6" cy="6" r="3"></circle>
+                                <circle cx="18" cy="6" r="3"></circle>
+                                <path d="M9 6h6"></path>
+                                <path d="M6 9v12"></path>
+                                <path d="M18 9v12"></path>
+                            </svg>
+                        </div>
+                        <span class="number-watermark">02</span>
+                        <h2>Our Vision</h2>
+                        <p>To foster a thriving, inclusive park community where every visitor feels supported. We envision a future where outdoor spaces are vibrant, encouraging well-being.</p>
+                    </div>
+                </div>
+                <div class="journey-item">
+                    <div class="journey-visual">
+                        <div class="img-frame blob-3">
+                            <img src="Img_aboutus/values.jpeg" alt="Values Context">
+                        </div>
+                    </div>
+                    <div class="journey-content glass-card">
+                        <div class="icon-box">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                            </svg>
+                        </div>
+                        <span class="number-watermark">03</span>
+                        <h2>Our Values</h2>
+                        <p>We prioritize safety and accessibility. We foster community connection, promote mindfulness, and encourage eco-friendly habits through innovation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Footer-->
+        <footer class="footer-container">
+            <div class="footer-wave"></div>
+            <div class="floating-leaves" id="leaves-container"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-5">
+                        <div class="footer-logo">
+                            <div class="logo-circle">
+                                <i class="fas fa-tree"></i>
+                            </div>
+                            <div class="logo-text">
+                                <h3>Step by Park</h3>
+                                <p>Revitalizing Local Parks</p>
+                            </div>
+                        </div>
+                        <p class="footer-about">
+                            Step by Park is dedicated to revitalizing local parks and fostering connections between community green spaces and personal well-being. We believe every step in nature is a step toward better health and happiness.
+                        </p>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="Twitter">
+                            <i class="fa-brands fa-x-twitter"></i>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 mb-5">
+                        <h4 class="footer-heading">Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="account.html" data-page="home">Home</a></li>
+                            <li><a href="account_about_us.html" data-page="about">About Us</a></li>
+                            <li><a href="account_fitnessandmindfulness.html" data-page="activity">Fitness and Mindfulness</a></li>
+                            <li><a href="account_ecochallenges.html" data-page="dashboard">Eco Challenges</a></li>
+                            <li><a href="account_toolsandtrackers.html" data-page="contact">Tools and Trackers</a></li>
+                            <li><a href="account_parklife.html" data-page="events">Community Board</a></li>
+                            <li><a href="account_contact_us.html" data-page="volunteer">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-md-6 mb-5">
+                        <h4 class="footer-heading">Resources</h4>
+                        <ul class="footer-links">
+                            <li><a href="termofservice.html" data-page="blog">Terms of Service</a></li>
+                            <li><a href="privacyandpolicy.html" data-page="guides">Privacy Policy</a></li>
+                            <li><a href="reference.html" data-page="maps">References</a></li>
+                            <li><a href="account_contact_us.html" data-page="faq">FAQ</a></li>
+                            <li><a href="https://www.canva.com/design/DAG5S3Z-H9o/0FNnoviohHuUddmU3heNeg/edit?utm_content=DAG5S3Z-H9o&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" data-page="resources">Additional Resources</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-5">
+                        <h4 class="footer-heading">Search Park Info</h4>
+                        <div class="search-container">
+                            <input type="text" class="search-input" placeholder="Search parks, activities..." id="footer-search">
+                            <button class="search-btn" id="search-button">
+                            <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                        <h4 class="footer-heading mt-4">Stay Updated</h4>
+                        <p style="opacity: 0.8; margin-bottom: 1rem;">Subscribe to our newsletter for park updates and wellness tips.</p>
+                        <div class="newsletter-form">
+                            <input type="email" class="newsletter-input" placeholder="Your email address" id="newsletter-email">
+                            <button class="newsletter-btn" id="newsletter-submit">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="copyright">
+                        &copy; 2025 Step by Park. All rights reserved. | Connecting Communities with Nature
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                // Handle Display Name Change
+                document.getElementById("changeNameForm").addEventListener("submit", function(e) {
+                    e.preventDefault();
+                    var newName = document.getElementById("newDisplayName").value.trim();
+                    if(newName.length === 0) return;
+            
+                    // Update localStorage
+                    var user = JSON.parse(localStorage.getItem('sbp_user') || '{}');
+                    user.name = newName;
+                    localStorage.setItem('sbp_user', JSON.stringify(user));
+            
+                    // Update all navbar display names on both desktop and offcanvas
+                    if(typeof loadProfile === "function") loadProfile();
+            
+                    document.getElementById("newDisplayName").value = "";
+            
+                    // Show a notification if available
+                    if(typeof showNotification === "function") showNotification("Name updated!");
+                });
+            });
+        </script>
+        <script>
+            // Properly update both desktop and offcanvas usernames everywhere
+            function loadProfile() {
+                var user = JSON.parse(localStorage.getItem('sbp_user') || '{}');
+                // Desktop user display in account dropdown
+                var desktopName = document.getElementById('displayNameText');
+                if (desktopName) desktopName.textContent = user.name || 'User';
+                // Offcanvas username
+                var offcanvasUsername = document.getElementById('offcanvasUsername');
+                if (offcanvasUsername) offcanvasUsername.textContent = user.name || 'User';
+            }
+            // Call it on DOMContentLoaded so it's run after all elements are available
+            document.addEventListener("DOMContentLoaded", function () {
+                loadProfile();
+                // Switch User modal logic
+                function showSignInModal() {
+                    var loginTab = document.querySelector('.auth-tab[data-tab="login"]');
+                    if (loginTab) loginTab.click();
+                    var modal = document.getElementById('authModal');
+                    if (modal && typeof bootstrap !== "undefined") {
+                        var authModal = bootstrap.Modal.getOrCreateInstance(modal);
+                        authModal.show();
+                    }
+                }
+                var switchBtn = document.querySelector('#switchUserBtn');
+                var switchBtnMobile = document.querySelector('#switchUserBtnMobile');
+                if(switchBtn) switchBtn.addEventListener('click', function(e){ e.preventDefault(); showSignInModal(); });
+                if(switchBtnMobile) switchBtnMobile.addEventListener('click', function(e){ e.preventDefault(); showSignInModal(); });
+                var logoutBtn = document.querySelector('#logoutBtn');
+                var logoutBtnMobile = document.querySelector('#logoutBtnMobile');
+                function logoutHandler(e){
+                    e.preventDefault();
+                    localStorage.removeItem('sbp_user');
+                    window.location.href = "index.html";
+                }
+                if(logoutBtn) logoutBtn.addEventListener('click', logoutHandler);
+                if(logoutBtnMobile) logoutBtnMobile.addEventListener('click', logoutHandler);
+            });
+        </script>
+        <script>
+            // Modal tab logic is unchanged from original
+            document.addEventListener("DOMContentLoaded", function() {
+                const authTabs = document.querySelectorAll(".auth-tab");
+                const tabIndicator = document.getElementById("tabIndicator");
+                const authForms = document.querySelectorAll(".auth-form");
+                function activateTab(tabBtn) {
+                    authTabs.forEach(t => t.classList.remove("active"));
+                    tabBtn.classList.add("active");
+                    authForms.forEach(form => form.classList.remove("active"));
+                    const targetTab = tabBtn.dataset.tab + "Form";
+                    document.getElementById(targetTab).classList.add("active");
+                    updateTabIndicator();
+                }
+                authTabs.forEach(tab => {
+                    tab.addEventListener("click", function() {
+                        activateTab(this);
+                    });
+                });
+                function updateTabIndicator() {
+                    const activeTab = document.querySelector(".auth-tab.active");
+                    if (activeTab && tabIndicator) {
+                        tabIndicator.style.width = activeTab.offsetWidth + "px";
+                        tabIndicator.style.left = activeTab.offsetLeft + "px";
+                    }
+                }
+                window.addEventListener("resize", updateTabIndicator);
+                document.querySelectorAll('.custom-checkbox').forEach(box => {
+                    box.addEventListener('click', function() {
+                        box.classList.toggle("checked");
+                    });
+                });
+                document.querySelectorAll('.switch-link').forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const target = this.getAttribute('data-switch');
+                        const btn = document.querySelector('.auth-tab[data-tab="' + target + '"]');
+                        if (btn) btn.click();
+                    });
+                });
+                document.querySelectorAll('.password-toggle').forEach(toggle => {
+                    toggle.addEventListener('click', function() {
+                        const target = document.getElementById(this.getAttribute('data-target'));
+                        if (!target) return;
+                        if (target.type === "password") {
+                            target.type = "text";
+                            this.querySelector('i').classList.remove("fa-eye");
+                            this.querySelector('i').classList.add("fa-eye-slash");
+                        } else {
+                            target.type = "password";
+                            this.querySelector('i').classList.add("fa-eye");
+                            this.querySelector('i').classList.remove("fa-eye-slash");
+                        }
+                    });
+                });
+                updateTabIndicator();
+                activateTab(document.querySelector('.auth-tab[data-tab="login"]'));
+            });
+        </script>
+        <!-- Bootstrap JS Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Custom JS -->
+        <!-- External Js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+        <script src="https://kit.fontawesome.com/your-code-here.js" crossorigin="anonymous"></script>
+        <script src="JS/script.js"></script>
+        <script src="JS/stat.js"></script>
+        <script src="JS/testimonial.js"></script>
+        <script src="JS/dropdown.js"></script>
+        <script src="JS/review.js"></script>
+        <script src="JS/feedback.js"></script>
+        <script src="JS/signin_signup.js"></script>
+        <script src="JS/footer.js"></script>
+        <script src="JS/options.js"></script>
+        <script src="JS/hero-slider.js"></script>
+        <script src="JS/navbar_active.js"></script>
+    </body>
+</html>

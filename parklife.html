@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Step By Park / Community Board</title>
+        <!-- Font Awesome for icons -->
+        <script src="https://kit.fontawesome.com/b3928d282b.js" crossorigin="anonymous"></script>
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+        <!-- Bootstrap 5 -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <!-- Custom CSS -->
+        <link rel="shortcut icon" href="Img/logo_circle.ico" type="image/x-icon">
+        <link rel="stylesheet" href="CSS/parklife_styles.css">
+        <link rel="stylesheet" href="CSS/style.css">
+        <link rel="stylesheet" href="CSS/footer.css">
+    </head>
+    <body>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg fixed-top bg-white shadow-sm">
+            <div class="container-fluid nav-ctn">
+            <a class="navbar-brand" href="index.html">
+                <img src="Img/logo_stepbypark.png" class="logo" alt="step_by_park">
+            </a>
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Desktop Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="index.html">
+                        <i class="fas fa-leaf me-2 pages-nav"></i>
+                        <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about_us.html">
+                        <i class="fas fa-seedling me-2 pages-nav"></i>
+                        <span>About Us</span>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="activityHubDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-route me-2 pages-nav"></i>
+                        <span>Activity Hub</span>
+                        <i class="fa-solid fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="activityHubDropdown">
+                            <li><a class="dropdown-item" href="fitnessandmindfulness.html">Fitness and Mindfulness</a></li>
+                            <li><a class="dropdown-item" href="ecochallenges.html">Eco Challenges</a></li>
+                            <li><a class="dropdown-item" href="toolsandtrackers.html">Tools and Trackers</a></li>
+                            <li><a class="dropdown-item" href="parklife.html">Community Board</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact_us.html">
+                        <i class="fas fa-calendar-week me-2 pages-nav"></i>
+                        <span>Contact Us</span>
+                        </a>
+                    </li>
+                    <li class="nav-item ms-lg-4 mt-3 mt-lg-0">
+                        <a class="btn btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#authModal">
+                        <span>Sign In</span>
+                        <i class="fas fa-arrow-right ms-2 pages-nav"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Mobile Offcanvas Menu -->
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                        <i class="fas fa-leaf me-2"></i>Step By Park
+                    </h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about_us.html">About</a>
+                        </li>
+                        <!-- Dropdown/Accordion -->
+                        <li class="nav-item">
+                            <button class="nav-link d-flex justify-content-between align-items-center w-100"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#mobileDropdown"
+                                aria-expanded="false"
+                                aria-controls="mobileDropdown">
+                            Activity Hub
+                            <i class="fas fa-chevron-down ms-2"></i>
+                            </button>
+                            <div class="collapse" id="mobileDropdown">
+                                <ul class="navbar-nav ps-3">
+                                    <li><a class="nav-link" href="fitnessandmindfulness.html">Fitness and Mindfulness</a></li>
+                                    <li><a class="nav-link" href="ecochallenges.html">Eco Challenges</a></li>
+                                    <li><a class="nav-link" href="toolsandtrackers.html">Tools and Trackers</a></li>
+                                    <li><a class="nav-link" href="parklife.html">Community Board</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact_us.html">Contact</a>
+                        </li>
+                        <li class="nav-item ms-lg-4 mt-3 mt-lg-0">
+                            <a class="btn btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#authModal">
+                            <span>Sign In</span>
+                            <i class="fas fa-arrow-right ms-2 pages-nav"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- MODAL: Sign In/Sign Up -->
+        <div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body" style="border-radius: 25px;">
+                        <div class="auth-card">
+                            <!-- Header -->
+                            <div class="auth-header">
+                                <div class="logo_modal">
+                                    <i class="fas fa-leaf"></i>
+                                    GreenSpace
+                                </div>
+                                <p class="auth-subtitle">Join our sustainable community</p>
+                            </div>
+                            <!-- Tabs -->
+                            <div class="auth-tabs">
+                                <button class="auth-tab active" data-tab="login">Sign In</button>
+                                <button class="auth-tab" data-tab="signup">Create Account</button>
+                                <div class="tab-indicator" id="tabIndicator"></div>
+                            </div>
+                            <!-- Forms Container -->
+                            <div class="auth-content">
+                                <!-- Login Form -->
+                                <form id="loginForm" class="auth-form active">
+                                    <div class="form-group">
+                                        <label class="form-label">Email Address</label>
+                                        <div class="input-with-icon">
+                                            <i class="fas fa-envelope input-icon"></i>
+                                            <input type="email" class="form-control" id="loginEmail" placeholder="you@example.com" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Password</label>
+                                        <div class="input-with-icon">
+                                            <i class="fas fa-lock input-icon"></i>
+                                            <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
+                                            <button type="button" class="password-toggle" data-target="loginPassword">
+                                            <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="remember-forgot">
+                                        <label class="checkbox-label">
+                                            <div class="custom-checkbox" data-checkbox="remember">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            Remember me
+                                        </label>
+                                        <a href="#" class="forgot-link">Forgot password?</a>
+                                    </div>
+                                    <button type="submit" class="auth-btn">Sign In</button>
+                                    <div class="divider"><span>Or continue with</span></div>
+                                    <div class="social-auth">
+                                        <button type="button" class="social-btn google"><i class="fab fa-google"></i></button>
+                                        <button type="button" class="social-btn facebook"><i class="fab fa-facebook-f"></i></button>
+                                        <button type="button" class="social-btn twitter"><i class="fa-brands fa-x-twitter"></i></button>
+                                    </div>
+                                    <div class="auth-footer">
+                                        Don't have an account? <a href="#" class="switch-link" data-switch="signup">Sign up</a>
+                                    </div>
+                                </form>
+                                <!-- Signup Form -->
+                                <form id="signupForm" class="auth-form">
+                                    <div class="form-group">
+                                        <label class="form-label">Full Name</label>
+                                        <div class="input-with-icon">
+                                            <i class="fas fa-user input-icon"></i>
+                                            <input type="text" class="form-control" id="signupName" placeholder="John Doe" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Email Address</label>
+                                        <div class="input-with-icon">
+                                            <i class="fas fa-envelope input-icon"></i>
+                                            <input type="email" class="form-control" id="signupEmail" placeholder="you@example.com" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Password</label>
+                                        <div class="input-with-icon">
+                                            <i class="fas fa-lock input-icon"></i>
+                                            <input type="password" class="form-control" id="signupPassword" placeholder="Create a strong password" required>
+                                            <button type="button" class="password-toggle" data-target="signupPassword">
+                                            <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Confirm Password</label>
+                                        <div class="input-with-icon">
+                                            <i class="fas fa-lock input-icon"></i>
+                                            <input type="password" class="form-control" id="signupConfirmPassword" placeholder="Confirm your password" required>
+                                            <button type="button" class="password-toggle" data-target="signupConfirmPassword">
+                                            <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="terms-checkbox">
+                                        <label class="checkbox-label">
+                                            <div class="custom-checkbox" data-checkbox="terms">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <span class="terms-text">
+                                            I agree to the 
+                                            <a href="#" class="terms-link">Terms of Service</a> and
+                                            <a href="#" class="terms-link">Privacy Policy</a>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <button type="submit" class="auth-btn">Create Account</button>
+                                    <div class="divider"><span>Or sign up with</span></div>
+                                    <div class="social-auth">
+                                        <button type="button" class="social-btn google"><i class="fab fa-google"></i></button>
+                                        <button type="button" class="social-btn facebook"><i class="fab fa-facebook-f"></i></button>
+                                        <button type="button" class="social-btn twitter"><i class="fa-brands fa-x-twitter"></i></button>
+                                    </div>
+                                    <div class="auth-footer">
+                                        Already have an account? <a href="#" class="switch-link" data-switch="login">Sign in</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- Notification (can be outside, but stays visible if inside modal) 
+                            <div class="notification" id="notification">
+                                <div class="notification-content">
+                                    <i class="fas fa-check-circle notification-icon"></i>
+                                    <div class="notification-message" id="notificationMessage">Welcome back!</div>
+                                </div>
+                            </div>
+                            -->
+                        <!-- Success Message (hidden by default, shown on submit) -->
+                        <div class="success-message" id="successMessage" style="display:none;">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Thank you! Your feedback has been submitted.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="pl-mainContent" class="container py-4 main-ctn">
+            <header class="text-center py-4 mb-4">
+                <h1 class="pl-header-title">
+                    <i class="fas fa-leaf me-2" style="color: var(--highlight-color);"></i>Welcome Back!
+                </h1>
+                <p class="pl-header-desc">
+                    Your hub for progress and community.
+                </p>
+            </header>
+            <!-- Tabs -->
+            <div class="d-flex justify-content-center mb-4">
+                <div class="d-flex border-bottom">
+                    <button class="pl-nav-link pl-active" id="pl-tab-personal" onclick="switchTab('pl-personal-board','pl-tab-personal')">My Progress Board</button>
+                    <button class="pl-nav-link" id="pl-tab-community" onclick="switchTab('pl-community-board','pl-tab-community')">Community Hub</button>
+                </div>
+            </div>
+            <!-- Personal Board -->
+            <div id="pl-personal-board">
+                <div class="row g-4">
+                    <!-- Left/Main Panel -->
+                    <div class="col-lg-8">
+                        <div class="pl-card-panel h-100">
+                            <h2 class="pl-section-title">Daily Summary</h2>
+                            <div class="row mb-4">
+                                <div class="col-md-4">
+                                    <div class="pl-stat-card text-center">
+                                        <div class="pl-stat-value" id="pl-displaySteps">0</div>
+                                        <div class="pl-stat-label">Steps</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="pl-stat-card text-center">
+                                        <div class="pl-stat-value" id="pl-displayMins">0</div>
+                                        <div class="pl-stat-label">Mins Goal</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="pl-stat-card text-center">
+                                        <div class="pl-stat-value" id="pl-displayExercises">0</div>
+                                        <div class="pl-stat-label">Activities</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Log Steps -->
+                            <div class="pl-input-block mb-4">
+                                <label class="pl-input-label">Log Steps</label>
+                                <div class="input-group">
+                                    <input id="pl-stepInput" type="number" class="form-control rounded-start" placeholder="Enter steps">
+                                    <button class="pl-btn-primary px-4 rounded-end" onclick="updateSteps()">Update</button>
+                                </div>
+                            </div>
+                            <!-- Record Exercise -->
+                            <div class="pl-input-block mb-4">
+                                <label class="pl-input-label">Record Exercise</label>
+                                <div class="row g-2">
+                                    <div class="col-8">
+                                        <input id="pl-activityName" type="text" class="form-control" placeholder="Activity (Jog, Yoga)">
+                                    </div>
+                                    <div class="col-4">
+                                        <input id="pl-activityMins" type="number" class="form-control" placeholder="Mins">
+                                    </div>
+                                </div>
+                                <div class="text-end mt-3">
+                                    <button class="pl-btn-primary px-5 py-2" onclick="addActivity()">Log Minutes</button>
+                                </div>
+                            </div>
+                            <!-- Mood Selector -->
+                            <div class="pl-input-block mb-4">
+                                <label class="pl-input-label">Today's Mood</label>
+                                <div class="row g-2 pl-mood-selector">
+                                    <div class="col">
+                                        <button type="button" onclick="setMood(this,'Energetic')"><i class="fas fa-bolt" style="color:#fcd34d;"></i> Energetic</button>
+                                    </div>
+                                    <div class="col">
+                                        <button type="button" onclick="setMood(this,'Calm')"><i class="fas fa-cloud" style="color:#60a5fa;"></i> Calm</button>
+                                    </div>
+                                    <div class="col">
+                                        <button type="button" onclick="setMood(this,'Tired')"><i class="fas fa-bed" style="color:#4b5563;"></i> Tired</button>
+                                    </div>
+                                    <div class="col">
+                                        <button type="button" onclick="setMood(this,'Sore')"><i class="fas fa-bandage" style="color:#ef4444;"></i> Sore</button>
+                                    </div>
+                                </div>
+                                <p id="pl-moodFeedback" class="pl-mood-feedback"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Right/Info Panel -->
+                    <div class="col-lg-4">
+                        <div class="pl-card-panel pl-info-panel h-100">
+                            <h2 class="pl-achievement-title"><i class="fas fa-medal me-2"></i>Your Achievements</h2>
+                            <div class="pl-streak-box">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <h4 class="pl-streak-label">Goal Streak <i class="fas fa-fire-alt text-danger"></i></h4>
+                                    <span id="pl-goalCompletionStreak" class="pl-streak-value">0</span>
+                                </div>
+                            </div>
+                            <h4 class="pl-progress-label">Wellness Minutes Progress</h4>
+                            <div class="pl-progress-bg">
+                                <div id="pl-wellnessProgress" class="pl-progress-bar"></div>
+                            </div>
+                            <p class="pl-progress-text" id="pl-progressText">0 / 300</p>
+                            <h4 class="pl-log-activities-label">Today's Logged Activities</h4>
+                            <ul id="pl-dailyActivityList" class="pl-activity-list">
+                                <li id="pl-emptyLogMessage" class="pl-empty-log-message">No activities logged yet.</li>
+                            </ul>
+                            <h4 class="pl-joined-title">Joined Programs</h4>
+                            <ul id="pl-joinedProgramsList" class="pl-joined-list">
+                                <li>No programs joined yet.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Reflection & Goal -->
+                <div class="pl-card-panel mt-4">
+                    <h2 class="pl-reflection-title">
+                        <i class="fas fa-lightbulb me-2" style="color:var(--highlight-color);"></i>Daily Reflection & Focus Goal
+                    </h2>
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <label for="pl-dailyReflection" class="pl-reflection-label"><i class="fas fa-scroll me-2 text-secondary"></i>Daily Reflection</label>
+                            <textarea id="pl-dailyReflection" class="pl-reflection-input form-control" rows="1" placeholder="What went well today?"></textarea>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="pl-nextDayGoal" class="pl-goal-label"><i class="fas fa-bullseye me-2 text-secondary"></i>Tomorrow's Focus Goal</label>
+                            <textarea id="pl-nextDayGoal" class="pl-goal-input form-control" rows="1" placeholder="What is your focus for tomorrow?"></textarea>
+                        </div>
+                    </div>
+                    <div class="text-center mt-4">
+                        <button onclick="saveReflectionAndGoal()" class="pl-btn-primary px-6 py-3 pl-save-btn">
+                        <i class="fas fa-save me-2"></i>Save & Complete Day
+                        </button>
+                        <p id="pl-goalFeedback" class="pl-goal-feedback"></p>
+                    </div>
+                </div>
+            </div>
+            <!-- Community Board -->
+            <div id="pl-community-board" class="pl-hidden">
+                <div class="row g-4">
+                    <!-- Leaderboards & Challenges -->
+                    <div class="col-lg-4">
+                        <div class="pl-card-panel h-100">
+                            <h2 class="pl-leaderboard-title"><i class="fas fa-trophy me-2"></i>Leaderboards</h2>
+                            <h3 class="pl-leaderboard-label">Top Steppers (Weekly)</h3>
+                            <ul id="pl-topPerformersList" class="pl-top-performers-list">
+                                <li class="d-flex justify-content-between align-items-center">
+                                    <span class="pl-top-performer-name">1. Fluke</span>
+                                    <span class="pl-top-performer-score">120k steps</span>
+                                </li>
+                                <li class="d-flex justify-content-between align-items-center">
+                                    <span class="pl-top-performer-name">2. Caskey</span>
+                                    <span class="pl-top-performer-score">115k steps</span>
+                                </li>
+                                <li class="d-flex justify-content-between align-items-center">
+                                    <span class="pl-top-performer-name">3. Kai</span>
+                                    <span class="pl-top-performer-score">98k steps</span>
+                                </li>
+                                <li class="d-flex justify-content-between align-items-center">
+                                    <span class="pl-user-rank">5. You</span>
+                                    <span id="pl-userStepsLeaderboard" class="pl-user-score">0 steps</span>
+                                </li>
+                            </ul>
+                            <h3 class="pl-challenge-label mt-3">Available Challenges</h3>
+                            <div class="pl-challenge-box mb-2">
+                                <span>Weekly 10K Run</span>
+                                <button onclick="toggleChallenge(this,'Weekly 10K Run')" class="pl-btn-secondary">Join</button>
+                            </div>
+                            <div class="pl-challenge-box mb-2">
+                                <span>Sunrise Yoga (7 Days)</span>
+                                <button onclick="toggleChallenge(this,'Sunrise Yoga')" class="pl-btn-secondary">Join</button>
+                            </div>
+                            <div class="pl-challenge-box mb-2">
+                                <span>Nature Photo Hunt</span>
+                                <button onclick="toggleChallenge(this,'Nature Photo Hunt')" class="pl-btn-secondary">Join</button>
+                            </div>
+                            <div class="pl-challenge-box">
+                                <span>Team Park Clean-Up</span>
+                                <button onclick="toggleChallenge(this,'Team Clean-Up')" class="pl-btn-secondary">Join</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Community Posts -->
+                    <div class="col-lg-8">
+                        <div class="pl-card-panel pl-info-panel h-100">
+                            <h2 class="pl-community-title"><i class="fas fa-camera me-2"></i>Community Posts</h2>
+                            <div class="pl-post-input-box mb-4">
+                                <textarea id="pl-postInput" class="pl-post-input form-control" rows="1" placeholder="Share a photo, a success, or ask a question..."></textarea>
+                                <input type="file" id="pl-imageUpload" accept="image/*" class="pl-hidden" onchange="previewImage(event)">
+                                <img id="pl-imagePreview" class="pl-feed-image mb-2" style="display:none;" alt="Image Preview">
+                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                    <button onclick="document.getElementById('pl-imageUpload').click()" class="pl-btn-secondary px-4 py-2 pl-share-image-btn">
+                                    <i class="fas fa-image me-2"></i>Share an Image
+                                    </button>
+                                    <button onclick="createPostfornotsignin()" class="pl-btn-primary px-4 py-2 pl-post-btn">Post to Feed</button>
+                                </div>
+                            </div>
+                            <div id="pl-feedContainer" class="pl-feed-list">
+                                <div class="pl-feed-post">
+                                    <p class="pl-feed-author">Admin <i class="fas fa-seedling text-success"></i></p>
+                                    <p class="pl-feed-text">Welcome to the new ParkLife community hub! Share your moments and connect with others.</p>
+                                    <span class="pl-feed-timestamp">Just now</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer-container">
+            <div class="footer-wave"></div>
+            <div class="floating-leaves" id="leaves-container"></div>
+            <div class="container">
+                <div class="row">
+                    <!-- Left Column: About & Logo -->
+                    <div class="col-lg-4 col-md-6 mb-5">
+                        <div class="footer-logo">
+                            <div class="logo-circle">
+                                <i class="fas fa-tree"></i>
+                            </div>
+                            <div class="logo-text">
+                                <h3>Step by Park</h3>
+                                <p>Revitalizing Local Parks</p>
+                            </div>
+                        </div>
+                        <p class="footer-about">
+                            Step by Park is dedicated to revitalizing local parks and fostering connections between community green spaces and personal well-being. We believe every step in nature is a step toward better health and happiness.
+                        </p>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="Twitter">
+                            <i class="fa-brands fa-x-twitter"></i>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Middle Column: Quick Links -->
+                    <div class="col-lg-2 col-md-6 mb-5">
+                        <h4 class="footer-heading">Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="index.html" data-page="home">Home</a></li>
+                            <li><a href="about_us.html" data-page="about">About Us</a></li>
+                            <li><a href="fitnessandmindfulness.html" data-page="activity">Fitness and Mindfulness</a></li>
+                            <li><a href="ecochallenges.html" data-page="dashboard">Eco Challenges</a></li>
+                            <li><a href="toolsandtrackers.html" data-page="contact">Tools and Trackers</a></li>
+                            <li><a href="parklife.html" data-page="events">Community Board</a></li>
+                            <li><a href="contact_us.html" data-page="volunteer">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <!-- Additional Column: Resources -->
+                    <div class="col-lg-2 col-md-6 mb-5">
+                        <h4 class="footer-heading">Resources</h4>
+                        <ul class="footer-links">
+                            <li><a href="termofservice.html" data-page="blog">Terms of Service</a></li>
+                            <li><a href="privacyandpolicy.html" data-page="guides">Privacy Policy</a></li>
+                            <li><a href="reference.html" data-page="maps">References</a></li>
+                            <li><a href="contact_us.html" data-page="faq">FAQ</a></li>
+                            <li><a href="https://www.canva.com/design/DAG5S3Z-H9o/0FNnoviohHuUddmU3heNeg/edit?utm_content=DAG5S3Z-H9o&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" data-page="resources">Additional Resources</a></li>
+                        </ul>
+                    </div>
+                    <!-- Right Column: Search & Newsletter (FIXED - moved inside .row) -->
+                    <div class="col-lg-4 col-md-6 mb-5">
+                        <h4 class="footer-heading">Search Park Info</h4>
+                        <div class="search-container">
+                            <input type="text" class="search-input" placeholder="Search parks, activities..." id="footer-search">
+                            <button class="search-btn" id="search-button">
+                            <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                        <h4 class="footer-heading mt-4">Stay Updated</h4>
+                        <p style="opacity: 0.8; margin-bottom: 1rem;">Subscribe to our newsletter for park updates and wellness tips.</p>
+                        <div class="newsletter-form">
+                            <input type="email" class="newsletter-input" placeholder="Your email address" id="newsletter-email">
+                            <button class="newsletter-btn" id="newsletter-submit">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- End ROW -->
+                <!-- Footer Bottom -->
+                <div class="footer-bottom">
+                    <div class="copyright">
+                        &copy; 2025 Step by Park. All rights reserved. | Connecting Communities with Nature
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script></script>
+        <!-- Bootstrap JS (with Popper) -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+        <script src="JS/parklife_scripts.js"></script>
+        <script src="JS/script.js"></script>
+        <script src="JS/signin_signup.js"></script>
+        <script src="JS/footer.js"></script>
+        <script src="JS/navbar_active.js"></script>
+    </body>
+</html>

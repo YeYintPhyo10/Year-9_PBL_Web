@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Step By Park</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap 5 and FontAwesome -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/b3928d282b.js" crossorigin="anonymous"></script>
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+        <!-- Main Styles -->
+        <link rel="shortcut icon" href="Img/logo_circle.ico" type="image/x-icon">
+        <link rel="stylesheet" href="CSS/style.css">
+        <link rel="stylesheet" href="CSS/feedback.css">
+        <link rel="stylesheet" href="CSS/footer.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+        <style>
+            .account-card {background:#fff; border-radius:24px; padding:2.2rem; box-shadow:0 10px 32px rgba(31,91,63,0.08); margin-top: 150px !important;
+            justify-content: center; width: 500px; align-items: center;
+            }
+            .profile-pic {width:80px; height:80px; border-radius:50%; object-fit:cover; background:#eee;}
+            .btn-logout {background:#ef5350; border:none; color:#fff;}
+            .btn-logout:hover {background:#dc3545;}
+            #notification {
+            display:none;
+            position:fixed;
+            bottom:48px;
+            right:30px;
+            z-index:2000;
+            min-width:300px;
+            background:#fff;
+            border-left:6px solid #7ec850;
+            box-shadow:0 10px 24px rgba(0,0,0,0.10);
+            padding:16px 22px 16px 44px;
+            font-size:1.07rem;
+            border-radius:16px;
+            transition:all 0.15s;
+            align-items:center;
+            gap:20px;
+            }
+            #notification.show {display:flex;}
+        </style>
+    </head>
+    <body>
+        <div class="bg-animation"></div>
+        <div class="background-grid"></div>
+        <div class="floating-leaf leaf-1"></div>
+        <div class="floating-leaf leaf-2"></div>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg fixed-top bg-white shadow-sm">
+            <div class="container-fluid nav-ctn">
+                <a class="navbar-brand" href="account.html">
+                    <img src="Img/logo_stepbypark.png" class="logo" alt="step_by_park">
+                </a>
+                <!-- Mobile Toggle Button -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <!-- Desktop Menu -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="account.html">
+                            <i class="fas fa-leaf me-2 pages-nav"></i> Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="account_about_us.html">
+                            <i class="fas fa-seedling me-2 pages-nav"></i> About Us</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="activityHubDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-route me-2 pages-nav"></i>Activity Hub <i class="fa-solid fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="activityHubDropdown">
+                                <li><a class="dropdown-item" href="account_fitnessandmindfulness.html">Fitness and Mindfulness</a></li>
+                                <li><a class="dropdown-item" href="account_ecochallenges.html">Eco Challenges</a></li>
+                                <li><a class="dropdown-item" href="account_toolsandtrackers.html">Tools and Trackers</a></li>
+                                <li><a class="dropdown-item" href="account_parklife.html">Community Board</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="account_contact_us.html">
+                            <i class="fas fa-calendar-week me-2 pages-nav"></i> Contact Us</a>
+                        </li>
+                        <li class="nav-item dropdown ms-lg-4 mt-3 mt-lg-0">
+                            <a class="btn btn-primary dropdown-toggle d-flex align-items-center shadow-sm"
+                                href="#"
+                                id="accountDropdown"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <h6 class="mb-0 fw-bold" id="displayNameText">User</h6>
+                                <i class="fas fa-user ms-2"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end custom-acc-dropdown" aria-labelledby="accountDropdown">
+                                <li><a class="dropdown-item" href="setting.html"><i class="fas fa-cog me-2"></i>Settings</a></li>
+                                <li><a class="dropdown-item" href="#" id="switchUserBtn"><i class="fas fa-right-left me-2"></i>Switch User</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item text-danger" href="#" id="logoutBtn"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Mobile Offcanvas Menu -->
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                            <i class="fas fa-leaf me-2"></i>Step By Park
+                        </h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="account.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="account_about_us.html">About</a>
+                            </li>
+                            <!-- Dropdown/Accordion -->
+                            <li class="nav-item">
+                                <button class="nav-link d-flex justify-content-between align-items-center w-100"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#mobileDropdown"
+                                    aria-expanded="false"
+                                    aria-controls="mobileDropdown">
+                                Activity Hub
+                                <i class="fas fa-chevron-down ms-2"></i>
+                                </button>
+                                <div class="collapse" id="mobileDropdown">
+                                    <ul class="navbar-nav ps-3">
+                                        <li><a class="nav-link" href="account_fitnessandmindfulness.html">Fitness and Mindfulness</a></li>
+                                        <li><a class="nav-link" href="account_ecochallenges.html">Eco Challenges</a></li>
+                                        <li><a class="nav-link" href="account_toolsandtrackers.html">Tools and Trackers</a></li>
+                                        <li><a class="nav-link" href="account_parklife.html">Community Board</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="account_contact_us.html">Contact</a>
+                            </li>
+                            <li class="nav-item dropdown ms-lg-4 mt-3 mt-lg-0">
+                                <a class="btn btn-primary dropdown-toggle d-flex align-items-center shadow-sm"
+                                href="#"
+                                id="accountDropdown"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <h6 class="mb-0 fw-bold" id="offcanvasUsername">User</h6>
+                                <i class="fas fa-user ms-2"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end custom-acc-dropdown" aria-labelledby="accountDropdown">
+                                    <li><a class="dropdown-item" href="setting.html"><i class="fas fa-cog me-2"></i>Settings</a></li>
+                                    <li>
+                                        <a class="dropdown-item" href="#" id="switchUserBtnMobile">
+                                            <i class="fas fa-right-left me-2"></i>Switch User
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item text-danger" href="#" id="logoutBtn"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- Account Modal (Sign In / Sign Up) -->
+        <div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body" style="border-radius: 25px;">
+                        <div class="auth-card">
+                            <!-- Header -->
+                            <div class="auth-header">
+                                <div class="logo_modal">
+                                    <i class="fas fa-leaf"></i>
+                                    GreenSpace
+                                </div>
+                                <p class="auth-subtitle">Join our sustainable community</p>
+                            </div>
+                            <!-- Tabs -->
+                            <div class="auth-tabs">
+                                <button class="auth-tab active" data-tab="login">Sign In</button>
+                                <button class="auth-tab" data-tab="signup">Create Account</button>
+                                <div class="tab-indicator" id="tabIndicator"></div>
+                            </div>
+                            <!-- Forms Container -->
+                            <div class="auth-content">
+                                <!-- Login Form -->
+                                <form id="loginForm" class="auth-form active">
+                                    <div class="form-group">
+                                        <label class="form-label">Email Address</label>
+                                        <div class="input-with-icon">
+                                            <i class="fas fa-envelope input-icon"></i>
+                                            <input type="email" class="form-control" id="loginEmail" placeholder="you@example.com" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Password</label>
+                                        <div class="input-with-icon">
+                                            <i class="fas fa-lock input-icon"></i>
+                                            <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" required>
+                                            <button type="button" class="password-toggle" data-target="loginPassword">
+                                            <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="remember-forgot">
+                                        <label class="checkbox-label">
+                                            <div class="custom-checkbox" data-checkbox="remember">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            Remember me
+                                        </label>
+                                        <a href="#" class="forgot-link">Forgot password?</a>
+                                    </div>
+                                    <button type="submit" class="auth-btn">Sign In</button>
+                                    <div class="divider"><span>Or continue with</span></div>
+                                    <div class="social-auth">
+                                        <button type="button" class="social-btn google"><i class="fab fa-google"></i></button>
+                                        <button type="button" class="social-btn facebook"><i class="fab fa-facebook-f"></i></button>
+                                        <button type="button" class="social-btn twitter"><i class="fa-brands fa-x-twitter"></i></button>
+                                    </div>
+                                    <div class="auth-footer">
+                                        Don't have an account? <a href="#" class="switch-link" data-switch="signup">Sign up</a>
+                                    </div>
+                                </form>
+                                <!-- Signup Form -->
+                                <form id="signupForm" class="auth-form">
+                                    <div class="form-group">
+                                        <label class="form-label">Full Name</label>
+                                        <div class="input-with-icon">
+                                            <i class="fas fa-user input-icon"></i>
+                                            <input type="text" class="form-control" id="signupName" placeholder="John Doe" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Email Address</label>
+                                        <div class="input-with-icon">
+                                            <i class="fas fa-envelope input-icon"></i>
+                                            <input type="email" class="form-control" id="signupEmail" placeholder="you@example.com" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Password</label>
+                                        <div class="input-with-icon">
+                                            <i class="fas fa-lock input-icon"></i>
+                                            <input type="password" class="form-control" id="signupPassword" placeholder="Create a strong password" required>
+                                            <button type="button" class="password-toggle" data-target="signupPassword">
+                                            <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Confirm Password</label>
+                                        <div class="input-with-icon">
+                                            <i class="fas fa-lock input-icon"></i>
+                                            <input type="password" class="form-control" id="signupConfirmPassword" placeholder="Confirm your password" required>
+                                            <button type="button" class="password-toggle" data-target="signupConfirmPassword">
+                                            <i class="fas fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="terms-checkbox">
+                                        <label class="checkbox-label">
+                                            <div class="custom-checkbox" data-checkbox="terms">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <span class="terms-text">
+                                            I agree to the 
+                                            <a href="#" class="terms-link">Terms of Service</a> and
+                                            <a href="#" class="terms-link">Privacy Policy</a>
+                                            </span>
+                                        </label>
+                                    </div>
+                                    <button type="submit" class="auth-btn">Create Account</button>
+                                    <div class="divider"><span>Or sign up with</span></div>
+                                    <div class="social-auth">
+                                        <button type="button" class="social-btn google"><i class="fab fa-google"></i></button>
+                                        <button type="button" class="social-btn facebook"><i class="fab fa-facebook-f"></i></button>
+                                        <button type="button" class="social-btn twitter"><i class="fa-brands fa-x-twitter"></i></button>
+                                    </div>
+                                    <div class="auth-footer">
+                                        Already have an account? <a href="#" class="switch-link" data-switch="login">Sign in</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Hero Section -->
+        <section class="hero" id="hero">
+            <div class="hero-bg">
+                <div class="hero-gradient"></div>
+                <div class="hero-orb orb-1"></div>
+                <div class="hero-orb orb-2"></div>
+                <div class="hero-orb orb-3"></div>
+            </div>
+            <div class="container-fluid hero-ctn">
+                <div class="row align-items-center hero-grid g-5">
+                    <div class="col-lg-6 hero-content">
+                        <div class="hero-eyebrow">
+                            <i class="fas fa-leaf"></i> Step By Park Conservancy
+                        </div>
+                        <h1>Rewild the <span>heart of the city</span></h1>
+                        <p>Wander through native gardens, shaded boardwalks, and playful community lawns. Step By Park blends mindful design with immersive ecology to create your favorite in-town escape.</p>
+                        <div class="hero-badges">
+                            <div class="hero-badge">
+                                <i class="fas fa-spa"></i>
+                                Guidences
+                            </div>
+                            <div class="hero-badge">
+                                <i class="fas fa-water"></i>
+                                Excercises
+                            </div>
+                            <div class="hero-badge">
+                                <i class="fas fa-seedling"></i>
+                                Revitalizing Local Park
+                            </div>
+                        </div>
+                        <div class="d-flex flex-wrap hero-cta">
+                            <a href="#visit" class="btn btn-primary">
+                            Plan a Visit
+                            <i class="fas fa-arrow-right ms-2"></i>
+                            </a>
+                            <a href="#trails" class="btn btn-ghost">
+                            Learn More
+                            <i class="fas fa-map ms-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 hero-visual">
+                        <div class="visual-card">
+                            <img src="Img/pyay_park.jpg" alt="Step By Park Boardwalk" class="img-fluid">
+                            <div class="floating-chip chip-1">
+                                <span>Local Park</span>
+                                <strong>Revitalizing</strong>
+                            </div>
+                            <div class="floating-chip chip-2">
+                                <span>Personal</span>
+                                <strong>Well-being</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-scroll">
+                <span>Scroll</span>
+                <div class="scroll-indicator"></div>
+            </div>
+        </section>
+        <section class="park-section" id="visit">
+            <div class="container">
+                <p class="section-heading">Action & Stewardship</p>
+                <h2 class="section-title">Activities that heal you and the earth</h2>
+                <p class="section-subtitle">Turn your visit into a contribution. Step By Park offers purposeful recreation where your personal wellness routine directly supports the sustainability and regeneration of our shared green space.</p>
+                <div class="section-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-book-open"></i>
+                        <h4>Mindful Nature Journaling</h4>
+                        <p>Slow down to sketch or note local flora. This practice sharpens mental focus and reduces anxiety while helping us monitor biodiversity changes without disturbing habitats.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-running"></i>
+                        <h4>The "Plogging" Loop</h4>
+                        <p>Combine jogging with litter collection. This eco-fitness trend boosts your endorphins and heart health while keeping our trails plastic-free and safe for local wildlife.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-seedling"></i>
+                        <h4>Canopy Care Volunteering</h4>
+                        <p>Join our tree-tending sessions. Working with soil is proven to lower cortisol levels, and your physical effort ensures our young trees survive to filter the city air.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <h4>Native Seed Gathering</h4>
+                        <p>Connect with neighbors during harvest season to collect native seeds. It fights social isolation and provides the essential stock needed to rewild future urban zones.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="park-section" id="trails">
+            <div class="container">
+                <p class="section-heading">Pathways to Presence</p>
+                <div class="row align-items-center gy-4">
+                    <div class="col-lg-6">
+                        <h2 class="section-title">Move at the speed of nature</h2>
+                        <p class="section-subtitle">We have reclaimed forgotten industrial edges to create a restorative trail network. These paths aren't just for exercise—they are designed to lower cortisol, invite reflection, and ground you in the rhythm of the seasons.</p>
+                        <a href="#visit" class="btn btn-primary">Start your wellness journey</a>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="trail-card">
+                            <ul>
+                                <li><span>Kandawgyi Lake </span><span>13.5 to 17.2 km</span></li>
+                                <li><span>Maha Bandula Park</span><span>7.5 acres</span></li>
+                                <li><span>Kantha- ya Park</span><span>10 acres</span></li>
+                                <li><span>Mya Kyun Thar Park</span><span>44.5 acres</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="park-section" id="gallery">
+            <div class="container">
+                <p class="section-heading">Field Notes</p>
+                <h2 class="section-title">Scenes from every corner</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-card" data-caption="Picking up Litter " style="background-image:url('Img/picking.jpg');"></div>
+                    <div class="gallery-card" data-caption="Sunbathing and Walking" style="background-image:url('images-activity/walking.jpg');"></div>
+                    <div class="gallery-card" data-caption="Stretching" style="background-image:url(images-activity/ses.jpg);"></div>
+                    <div class="gallery-card" data-caption="Stretching" style="background-image:url('images-activity/zwh.jpg');"></div>
+                </div>
+            </div>
+        </section>
+        <section class="stats-strip py-5" id="pulse">
+            <div class="container">
+                <div class="row g-4 justify-content-center">
+                    <div class="col-md-3 col-6">
+                        <div class="stat-card text-center p-4 shadow-sm rounded-4 h-100">
+                            <div class="stat-icon-bg mx-auto mb-3">
+                                <i class="fas fa-tree fa-2x stat-icon1"></i>
+                            </div>
+                            <span class="badge bg-success mb-2 stat-span1">Positive</span>
+                            <div class="stat-number display-5 fw-bold stat-num1" data-target="42"></div>
+                            <div class="stat-label text-muted">Feedback</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="stat-card text-center p-4 shadow-sm rounded-4 h-100">
+                            <div class="stat-icon-bg mx-auto mb-3">
+                                <i class="fas fa-leaf fa-2x stat-icon2"></i>
+                            </div>
+                            <span class="badge bg-success mb-2 stat-span2">Plus</span>
+                            <div class="stat-number display-5 fw-bold stat-num2" data-target="10"></div>
+                            <div class="stat-label text-muted">Staffs</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="stat-card text-center p-4 shadow-sm rounded-4 h-100">
+                            <div class="stat-icon-bg mx-auto mb-3">
+                                <i class="fas fa-hands-helping fa-2x stat-icon3"></i>
+                            </div>
+                            <span class="badge bg-success mb-2 stat-span3">Volunteers</span>
+                            <div class="stat-number display-5 fw-bold stat-num3" data-target="265"></div>
+                            <div class="stat-label text-muted">Volunteer hours / mo</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="stat-card text-center p-4 shadow-sm rounded-4 h-100">
+                            <div class="stat-icon-bg mx-auto mb-3">
+                                <i class="fas fa-calendar-week fa-2x stat-icon4"></i>
+                            </div>
+                            <span class="badge bg-success mb-2 stat-span4">Events</span>
+                            <div class="stat-number display-5 fw-bold stat-num4" data-target="12"></div>
+                            <div class="stat-label text-muted">Community events</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="feedback-main-ctn">
+            <div class="feedback-container">
+                <div class="leaf-decoration leaf-1">
+                    <i class="fas fa-leaf" style="font-size: 120px; color: var(--primary-color);"></i>
+                </div>
+                <div class="leaf-decoration leaf-2">
+                    <i class="fas fa-leaf" style="font-size: 120px; color: var(--primary-color);"></i>
+                </div>
+                <div class="section-header">
+                    <h1 class="section-title_feedback">Park Revitalization Feedback</h1>
+                    <p class="section-subtitle_feedback">Share your experience and suggestions to help us create a more beautiful, accessible, and wellbeing-focused park environment for everyone.</p>
+                </div>
+                <div class="feedback-content">
+                    <div class="feedback-form-container">
+                        <h2 class="form-title"><i class="fas fa-comment-medical"></i> Share Your Feedback</h2>
+                        <form id="feedbackForm">
+                            <div class="form-group">
+                                <label class="form-label">How would you rate your park experience?</label>
+                                <div class="rating-container">
+                                    <div class="rating-option rating-1" data-rating="1">
+                                        <div class="rating-icon">
+                                            <i class="fas fa-frown"></i>
+                                        </div>
+                                        <span class="rating-label">Poor</span>
+                                    </div>
+                                    <div class="rating-option rating-2" data-rating="2">
+                                        <div class="rating-icon">
+                                            <i class="fas fa-meh"></i>
+                                        </div>
+                                        <span class="rating-label">Fair</span>
+                                    </div>
+                                    <div class="rating-option rating-3" data-rating="3">
+                                        <div class="rating-icon">
+                                            <i class="fas fa-smile"></i>
+                                        </div>
+                                        <span class="rating-label">Good</span>
+                                    </div>
+                                    <div class="rating-option rating-4" data-rating="4">
+                                        <div class="rating-icon">
+                                            <i class="fas fa-laugh"></i>
+                                        </div>
+                                        <span class="rating-label">Very Good</span>
+                                    </div>
+                                    <div class="rating-option rating-5" data-rating="5">
+                                        <div class="rating-icon">
+                                            <i class="fas fa-grin-stars"></i>
+                                        </div>
+                                        <span class="rating-label">Excellent</span>
+                                    </div>
+                                </div>
+                                <input type="hidden" id="ratingValue" name="rating" value="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="feedbackArea" class="form-label">Your Feedback</label>
+                                <textarea class="form-control" id="feedbackArea" rows="5" placeholder="Tell us about your park experience, suggestions for improvement, or what you love about our revitalization efforts..." maxlength="500"></textarea>
+                                <div class="char-count"><span id="charCount">0</span>/500 characters</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="categorySelect" class="form-label">Category</label>
+                                <select class="form-select" id="categorySelect">
+                                    <option value="general">General Experience</option>
+                                    <option value="greenery">Greenery & Nature</option>
+                                    <option value="accessibility">Accessibility</option>
+                                    <option value="activities">Guidences</option>
+                                    <option value="facilities">Health Education</option>
+                                </select>
+                            </div>
+                            <div id="userNameInputGroup" class="form-group">
+                                <label class="form-label" for="userName">Your Name</label>
+                                <input type="text" id="userName" class="form-control" placeholder="Your Name">
+                            </div>
+                            <button type="submit" class="btn btn-submit">
+                            Submit Feedback
+                            </button>
+                        </form>
+                    </div>
+                    <div class="feedback-display-container">
+                        <h2 class="feedback-display-title"><i class="fas fa-comments"></i> Recent Feedback</h2>
+                        <div class="feedback-list" id="feedbackList">
+                            <div class="empty-state" id="emptyState">
+                                <i class="fas fa-comment-slash"></i>
+                                <p>No feedback yet. Be the first to share your thoughts!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <div class="stat-value" id="totalFeedback">0</div>
+                        <div class="stat-label">Total Feedback</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="avgRating">0.0</div>
+                        <div class="stat-label">Average Rating</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="positiveFeedback">0%</div>
+                        <div class="stat-label">Positive Feedback</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="todayFeedback">0</div>
+                        <div class="stat-label">Today's Feedback</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="success-message" id="successMessage">
+            <i class="fas fa-check-circle"></i>
+            <span>Thank you! Your feedback has been submitted.</span>
+        </div>
+        <footer class="footer-container">
+            <div class="footer-wave"></div>
+            <div class="floating-leaves" id="leaves-container"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 mb-5">
+                        <div class="footer-logo">
+                            <div class="logo-circle">
+                                <i class="fas fa-tree"></i>
+                            </div>
+                            <div class="logo-text">
+                                <h3>Step by Park</h3>
+                                <p>Revitalizing Local Parks</p>
+                            </div>
+                        </div>
+                        <p class="footer-about">
+                            Step by Park is dedicated to revitalizing local parks and fostering connections between community green spaces and personal well-being. We believe every step in nature is a step toward better health and happiness.
+                        </p>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="Twitter">
+                            <i class="fa-brands fa-x-twitter"></i>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-icon" aria-label="YouTube">
+                            <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 mb-5">
+                        <h4 class="footer-heading">Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="account.html" data-page="home">Home</a></li>
+                            <li><a href="account_about_us.html" data-page="about">About Us</a></li>
+                            <li><a href="account_fitnessandmindfulness.html" data-page="activity">Fitness and Mindfulness</a></li>
+                            <li><a href="account_ecochallenges.html" data-page="dashboard">Eco Challenges</a></li>
+                            <li><a href="account_toolsandtrackers.html" data-page="contact">Tools and Trackers</a></li>
+                            <li><a href="account_parklife.html" data-page="events">Community Board</a></li>
+                            <li><a href="account_contact_us.html" data-page="volunteer">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-md-6 mb-5">
+                        <h4 class="footer-heading">Resources</h4>
+                        <ul class="footer-links">
+                            <li><a href="termofservice.html" data-page="blog">Terms of Service</a></li>
+                            <li><a href="privacyandpolicy.html" data-page="guides">Privacy Policy</a></li>
+                            <li><a href="reference.html" data-page="maps">References</a></li>
+                            <li><a href="account_contact_us.html" data-page="faq">FAQ</a></li>
+                            <li><a href="https://www.canva.com/design/DAG5S3Z-H9o/0FNnoviohHuUddmU3heNeg/edit?utm_content=DAG5S3Z-H9o&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" data-page="resources">Additional Resources</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mb-5">
+                        <h4 class="footer-heading">Search Park Info</h4>
+                        <div class="search-container">
+                            <input type="text" class="search-input" placeholder="Search parks, activities..." id="footer-search">
+                            <button class="search-btn" id="search-button">
+                            <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                        <h4 class="footer-heading mt-4">Stay Updated</h4>
+                        <p style="opacity: 0.8; margin-bottom: 1rem;">Subscribe to our newsletter for park updates and wellness tips.</p>
+                        <div class="newsletter-form">
+                            <input type="email" class="newsletter-input" placeholder="Your email address" id="newsletter-email">
+                            <button class="newsletter-btn" id="newsletter-submit">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="copyright">
+                        &copy; 2025 Step by Park. All rights reserved. | Connecting Communities with Nature
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div id="notification">
+            <i class="fas fa-check-circle notification-icon" style="margin-right:16px;color:#7ec850;font-size:1.25em"></i>
+            <span id="notificationMessage"></span>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                // Handle Display Name Change
+                document.getElementById("changeNameForm").addEventListener("submit", function(e) {
+                    e.preventDefault();
+                    var newName = document.getElementById("newDisplayName").value.trim();
+                    if(newName.length === 0) return;
+            
+                    // Update localStorage
+                    var user = JSON.parse(localStorage.getItem('sbp_user') || '{}');
+                    user.name = newName;
+                    localStorage.setItem('sbp_user', JSON.stringify(user));
+            
+                    // Update all navbar display names on both desktop and offcanvas
+                    if(typeof loadProfile === "function") loadProfile();
+            
+                    document.getElementById("newDisplayName").value = "";
+            
+                    // Show a notification if available
+                    if(typeof showNotification === "function") showNotification("Name updated!");
+                });
+            });
+        </script>
+        <script>
+            // Properly update both desktop and offcanvas usernames everywhere
+            function loadProfile() {
+                var user = JSON.parse(localStorage.getItem('sbp_user') || '{}');
+                // Desktop user display in account dropdown
+                var desktopName = document.getElementById('displayNameText');
+                if (desktopName) desktopName.textContent = user.name || 'User';
+                // Offcanvas username
+                var offcanvasUsername = document.getElementById('offcanvasUsername');
+                if (offcanvasUsername) offcanvasUsername.textContent = user.name || 'User';
+            }
+            // Call it on DOMContentLoaded so it's run after all elements are available
+            document.addEventListener("DOMContentLoaded", function () {
+                loadProfile();
+                // Switch User modal logic
+                function showSignInModal() {
+                    var loginTab = document.querySelector('.auth-tab[data-tab="login"]');
+                    if (loginTab) loginTab.click();
+                    var modal = document.getElementById('authModal');
+                    if (modal && typeof bootstrap !== "undefined") {
+                        var authModal = bootstrap.Modal.getOrCreateInstance(modal);
+                        authModal.show();
+                    }
+                }
+                var switchBtn = document.querySelector('#switchUserBtn');
+                var switchBtnMobile = document.querySelector('#switchUserBtnMobile');
+                if(switchBtn) switchBtn.addEventListener('click', function(e){ e.preventDefault(); showSignInModal(); });
+                if(switchBtnMobile) switchBtnMobile.addEventListener('click', function(e){ e.preventDefault(); showSignInModal(); });
+                var logoutBtn = document.querySelector('#logoutBtn');
+                var logoutBtnMobile = document.querySelector('#logoutBtnMobile');
+                function logoutHandler(e){
+                    e.preventDefault();
+                    localStorage.removeItem('sbp_user');
+                    window.location.href = "index.html";
+                }
+                if(logoutBtn) logoutBtn.addEventListener('click', logoutHandler);
+                if(logoutBtnMobile) logoutBtnMobile.addEventListener('click', logoutHandler);
+            });
+        </script>
+        <script>
+            // Modal tab logic is unchanged from original
+            document.addEventListener("DOMContentLoaded", function() {
+                const authTabs = document.querySelectorAll(".auth-tab");
+                const tabIndicator = document.getElementById("tabIndicator");
+                const authForms = document.querySelectorAll(".auth-form");
+                function activateTab(tabBtn) {
+                    authTabs.forEach(t => t.classList.remove("active"));
+                    tabBtn.classList.add("active");
+                    authForms.forEach(form => form.classList.remove("active"));
+                    const targetTab = tabBtn.dataset.tab + "Form";
+                    document.getElementById(targetTab).classList.add("active");
+                    updateTabIndicator();
+                }
+                authTabs.forEach(tab => {
+                    tab.addEventListener("click", function() {
+                        activateTab(this);
+                    });
+                });
+                function updateTabIndicator() {
+                    const activeTab = document.querySelector(".auth-tab.active");
+                    if (activeTab && tabIndicator) {
+                        tabIndicator.style.width = activeTab.offsetWidth + "px";
+                        tabIndicator.style.left = activeTab.offsetLeft + "px";
+                    }
+                }
+                window.addEventListener("resize", updateTabIndicator);
+                document.querySelectorAll('.custom-checkbox').forEach(box => {
+                    box.addEventListener('click', function() {
+                        box.classList.toggle("checked");
+                    });
+                });
+                document.querySelectorAll('.switch-link').forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const target = this.getAttribute('data-switch');
+                        const btn = document.querySelector('.auth-tab[data-tab="' + target + '"]');
+                        if (btn) btn.click();
+                    });
+                });
+                document.querySelectorAll('.password-toggle').forEach(toggle => {
+                    toggle.addEventListener('click', function() {
+                        const target = document.getElementById(this.getAttribute('data-target'));
+                        if (!target) return;
+                        if (target.type === "password") {
+                            target.type = "text";
+                            this.querySelector('i').classList.remove("fa-eye");
+                            this.querySelector('i').classList.add("fa-eye-slash");
+                        } else {
+                            target.type = "password";
+                            this.querySelector('i').classList.add("fa-eye");
+                            this.querySelector('i').classList.remove("fa-eye-slash");
+                        }
+                    });
+                });
+                updateTabIndicator();
+                activateTab(document.querySelector('.auth-tab[data-tab="login"]'));
+            });
+        </script>
+        <script src="JS/signin_signup.js"></script>
+        <script src="JS/script.js"></script>
+        <script src="JS/stat.js"></script>
+        <script src="JS/testimonial.js"></script>
+        <script src="JS/dropdown.js"></script>
+        <script src="JS/review.js"></script>
+        <script src="JS/feedback.js"></script>
+        <script src="JS/footer.js"></script>
+        <script src="JS/navbar_active.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

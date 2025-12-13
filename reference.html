@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <base target="_self">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step By Park / References</title>
+    <link rel="shortcut icon" href="Img/logo_circle.ico" type="image/x-icon">
+    <meta name="description" content="Helpful references for park revitalization and personal well-being">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0f3d2e;
+            --secondary-color: #1f5b3f;
+            --accent-color: #f3faf6;
+            --text-color: #0f2a1f;
+            --muted-text: rgba(15, 61, 46, 0.7);
+            --bg-color: #f5fbf3;
+            --highlight-color: #7ec850;
+            --soft-highlight: rgba(126, 200, 80, 0.15);
+            --border-radius: 50px;
+            --border-color: rgba(31, 91, 63, 0.15);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        /* Header Styles */
+        .main-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 100px 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        .main-header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.15;
+            z-index: 0;
+        }
+        .header-content { position: relative; z-index: 1; }
+        .header-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .header-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--soft-highlight);
+            z-index: 0;
+            animation: float 6s ease-in-out infinite;
+        }
+        .floating-element:nth-child(1) { width: 80px; height: 80px; top: 20%; left: 10%; animation-delay: 0s; }
+        .floating-element:nth-child(2) { width: 120px; height: 120px; top: 60%; right: 15%; animation-delay: 2s; }
+        .floating-element:nth-child(3) { width: 60px; height: 60px; bottom: 20%; left: 20%; animation-delay: 4s; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        /* Content Section */
+        .content-section { padding: 70px 0; position: relative; }
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px; left: 0;
+            width: 60px; height: 4px;
+            background-color: var(--highlight-color);
+            border-radius: 2px;
+        }
+        .terms-card {
+            background-color: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(15, 61, 46, 0.08);
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .terms-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(15, 61, 46, 0.12);
+        }
+        .terms-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--highlight-color);
+            border-radius: 0 5px 5px 0;
+        }
+        .terms-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .terms-card h3 i {
+            color: var(--highlight-color);
+            font-size: 1.5rem;
+        }
+        .reference-list {
+            color: var(--muted-text);
+            font-size: 1.05rem;
+            padding-left: 12px;
+        }
+        .reference-list li {
+            margin-bottom: 12px;
+        }
+        .reference-list a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        .reference-list a:hover {
+            color: var(--highlight-color);
+            text-decoration: underline;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed; bottom: 30px; right: 30px;
+            width: 50px; height: 50px;
+            background-color: var(--highlight-color);
+            color: white;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(15, 61, 46, 0.3);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+        .back-to-top.show {
+            opacity: 1; visibility: visible;
+        }
+        .back-to-top:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        @media (max-width: 992px) {
+            .header-title { font-size: 2.5rem; }
+        }
+        @media (max-width: 768px) {
+            .header-title { font-size: 2rem; }
+            .terms-card { padding: 25px 14px; }
+            .content-section { padding: 40px 0; }
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+         /* Custom scrollbar */
+            ::-webkit-scrollbar {
+            width: 10px;
+            }
+            ::-webkit-scrollbar-track {
+            background: var(--accent-color);
+            }
+            ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 5px;
+            }
+            ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-color);
+            }
+    </style>
+</head>
+<body>
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-chevron-up"></i></a>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="container header-content">
+            <div class="row">
+                <div class="col-lg-10 mx-auto text-center">
+                    <h1 class="header-title mb-4">References</h1>
+                    <p class="header-subtitle">Explore helpful resources and research related to revitalizing parks and enhancing personal well-being.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Main Content -->
+    <main>
+        <section class="content-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="section-title mb-4">Helpful Links & Resources</h2>
+                        <div class="terms-card fade-in" id="references">
+                            <h3><i class="fas fa-book-open"></i> Reference Links</h3>
+                            <ul class="reference-list">
+                                <li>
+                                    <a href="https://www.nrpa.org/" target="_blank" rel="noopener">
+                                        National Recreation and Park Association (NRPA)
+                                    </a> — Research on parks and health benefits.
+                                </li>
+                                <li>
+                                    <a href="https://www.parks-research.org/" target="_blank" rel="noopener">
+                                        Parks & Green Space Research Portal
+                                    </a> — Latest studies on green spaces and well-being.
+                                </li>
+                                <li>
+                                    <a href="https://www.cdc.gov/healthyplaces/healthtopics/parks.htm" target="_blank" rel="noopener">
+                                        CDC: Parks & Health
+                                    </a> — CDC guidance on parks and personal wellness.
+                                </li>
+                                <li>
+                                    <a href="https://www.tpl.org/" target="_blank" rel="noopener">
+                                        Trust for Public Land
+                                    </a> — Community park initiatives and toolkits.
+                                </li>
+                                <li>
+                                    <a href="https://healingcenters.org/nature-benefits/" target="_blank" rel="noopener">
+                                        Nature & Healing Center
+                                    </a> — The science and practice of nature for well-being.
+                                </li>
+                                <li>
+                                    <a href="https://www.who.int/news-room/fact-sheets/detail/urban-green-spaces-and-health" target="_blank" rel="noopener">
+                                        WHO: Urban Green Spaces and Health
+                                    </a> — Global insights on green spaces and health.
+                                </li>
+                                <li>
+                                    <a href="https://www.nature.org/en-us/get-involved/how-to-help/places-we-protect/" target="_blank" rel="noopener">
+                                        The Nature Conservancy
+                                    </a> — Volunteer opportunities and park projects.
+                                </li>
+                                <li>
+                                    <a href="https://academic.oup.com/heapro/article/36/Supplement_1/i7/5944209" target="_blank" rel="noopener">
+                                        The health benefits of urban green spaces: a review of the evidence
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://greencitiesfund.org/" target="_blank" rel="noopener">
+                                        Green Cities Fund
+                                    </a> — Funding and grants for park revitalization.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="alert alert-success mt-4 text-center fade-in">Have a resource to share? <a href="mailto:info@parkrevive.com" style="color:var(--secondary-color);text-decoration:underline;">Let us know!</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+        backToTop.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+        // Animate elements on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const fadeInOnScroll = function() {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+        fadeInOnScroll();
+        window.addEventListener('scroll', fadeInOnScroll);
+        setTimeout(fadeInOnScroll, 100);
+    </script>
+</body>
+</html>
