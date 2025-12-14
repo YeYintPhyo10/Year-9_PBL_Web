@@ -56,17 +56,19 @@ function filterRows() {
     let rows = document.querySelectorAll('.smart-row');
 
     rows.forEach(row => {
-        let tags = row.getAttribute('data-tags');
-        let title = row.querySelector('.row-title').innerText.toLowerCase();
-        row.style.display = (tags.includes(input) || title.includes(input)) ? 'block' : 'none';
+        let tags = row.getAttribute('data-tags') || '';
+        let title = (row.querySelector('.row-title') && row.querySelector('.row-title').innerText) || '';
+        row.style.display = (tags.toLowerCase().includes(input) || title.toLowerCase().includes(input)) ? 'block' : 'none';
     });
 }
 
 const dateOptions = { weekday: 'long', month: 'long', day: 'numeric' };
-document.getElementById('currentDate').innerText = new Date().toLocaleDateString('en-US', dateOptions);
+const currentDateEl = document.getElementById('currentDate');
+if (currentDateEl) currentDateEl.innerText = new Date().toLocaleDateString('en-US', dateOptions);
 
 function scrollToSection(id) { 
-    document.getElementById(id).scrollIntoView({ behavior: 'smooth' }); 
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' }); 
 }
 
 function updateStats(checkbox, count, cals) {
@@ -90,26 +92,41 @@ function saveStats(){
 
 
 function updateVisualStats(){
-    document.getElementById('calDisplay').innerText = stats.calories;
-    document.getElementById('progressText').innerText = `${stats.tasks} / ${stats.goal} Tasks`;
-
-    let pct = (stats.tasks / stats.goal) * 100;
-    if(pct > 100) pct = 100;
-    document.getElementById('progressBar').style.width = pct + '%';
-
+    const calEl = document.getElementById('calDisplay');
+    const progressTextEl = document.getElementById('progressText');
+    const progressBarEl = document.getElementById('progressBar');
     const icon = document.getElementById('petIcon');
     const status = document.getElementById('petStatus');
 
-    if(stats.tasks === 0) { icon.className = 'fas fa-egg pet-icon'; status.innerText = "Status: Dormant Egg"; }
-    else if (stats.tasks < stats.goal) { icon.className = 'fas fa-seedling pet-icon text-success'; status.innerText = "Status: Sprouting"; }
-    else { icon.className = 'fas fa-tree pet-icon text-success'; status.innerText = "Status: Mighty Oak"; }
+    if (calEl) calEl.innerText = stats.calories;
+    if (progressTextEl) progressTextEl.innerText = `${stats.tasks} / ${stats.goal} Tasks`;
+
+    let pct = (stats.tasks / stats.goal) * 100;
+    if(pct > 100) pct = 100;
+    if (progressBarEl) progressBarEl.style.width = pct + '%';
+
+    if(icon && status) {
+        if(stats.tasks === 0) {
+            icon.className = 'fas fa-egg pet-icon';
+            status.innerText = "Status: Dormant Egg";
+        }
+        else if (stats.tasks < stats.goal) {
+            icon.className = 'fas fa-seedling pet-icon text-success';
+            status.innerText = "Status: Sprouting";
+        }
+        else {
+            icon.className = 'fas fa-tree pet-icon text-success';
+            status.innerText = "Status: Mighty Oak";
+        }
+    }
 }
 
 let timerInterval;
 let isRunning = false;
 
 function toggleTimer() { 
-    document.getElementById('timerWidget').classList.toggle('active'); 
+    const widget = document.getElementById('timerWidget');
+    if (widget) widget.classList.toggle('active');
 }
 
 
@@ -125,8 +142,26 @@ function startTimer() {
 }
 
 function pauseTimer(){ 
-    clearInterval(timerInterval); 
+    if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+    }
     isRunning = false; 
+}
+
+/* RESET TIMER - updated: reset numbers only, do not close/hide the timer widget */
+function resetTimer(){
+    // Stop the running interval (if any)
+    pauseTimer();
+
+    // Reset seconds
+    seconds = 0;
+
+    // Persist and update UI
+    saveTimer();
+    loadTimerDisplay();
+
+    // Do NOT remove 'active' class — leave the widget open per request
 }
 
 function saveTimer(){
@@ -134,7 +169,8 @@ function saveTimer(){
 }
 
 function loadTimerDisplay(){
+    const display = document.getElementById('timerDisplay');
     let m = Math.floor(seconds/60).toString().padStart(2,'0');
     let s = (seconds%60).toString().padStart(2,'0');
-    document.getElementById('timerDisplay').innerText = `${m}:${s}`;
+    if (display) display.innerText = `${m}:${s}`;
 }
