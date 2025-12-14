@@ -448,6 +448,11 @@ body::before {
 }
 
 @media (max-width: 991.98px) {
+    .hero{
+        padding-top: 100px;
+        padding-left: 50px !important;
+        padding-right: 50px !important;
+    }
     .navbar-collapse {
         display: none !important;
     }
@@ -517,7 +522,11 @@ body::before {
 }
 
 @media (max-width: 575.98px) {
-
+    .hero{
+        padding-top: 100px;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
     .nav-ctn,
     .hero-ctn {
         padding-left: 0;
@@ -872,7 +881,9 @@ img.img-fluid {
 }
 
 @media (max-width: 767.98px) {
-
+    .park-section{
+        padding: 70px 20px 20px 20px !important;
+    }
     .feature-card,
     .trail-card,
     .stat-card,
@@ -884,19 +895,77 @@ img.img-fluid {
         border-radius: 16px;
     }
 
-    .park-section {
-        padding: 64px 0;
-    }
-
     .section-title {
         font-size: 2rem;
+    }
+}
+@media (max-width: 575.98px) {
+    .park-section .section-grid {
+        grid-template-columns: 1fr !important;
+        gap: 14px;
+    }
+}
+/* --- PHONE: 1 COLUMN --- */
+@media (max-width: 575.98px) {
+    .park-section .section-grid {
+        grid-template-columns: 1fr !important;
+        gap: 14px;
+    }
+    .park-section .gallery-grid {
+        grid-template-columns: 1fr !important;
+        gap: 14px;
+    }
+}
+/* --- PHONE: 1 COLUMN FOR STATS --- */
+@media (max-width: 575.98px) {
+    .stats-strip .stats-grid {
+        grid-template-columns: 1fr !important;
+        gap: 14px;
+    }
+}
+
+/* --- TABLET: 2 COLUMNS FOR STATS --- */
+@media (min-width: 576px) and (max-width: 991.98px) {
+    .stats-strip .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 18px;
+    }
+}
+/* ----- Responsive Cards: Park Section, Gallery, Stats ----- */
+@media (max-width: 575.98px) {
+    .park-section .section-grid,
+    .park-section .gallery-grid,
+    .stats-strip .stats-grid {
+        grid-template-columns: 1fr !important;
+        gap: 14px;
+    }
+    .gallery-card { height: 300px !important; }
+}
+
+@media (min-width: 576px) and (max-width: 991.98px) {
+    .park-section .section-grid,
+    .park-section .gallery-grid,
+    .stats-strip .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 18px;
+    }
+}
+/* --- TABLET: 2 COLUMNS --- */
+@media (min-width: 576px) and (max-width: 991.98px) {
+    .park-section .section-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 18px;
+    }
+    .park-section .gallery-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 18px;
     }
 }
 /* HERO: Tablet Responsiveness (iPad ~768px - 991.98px) */
 /* At screens less than 1400px, stack the hero section columns vertically (full width) */
 @media (max-width: 1399.98px) {
     .hero{
-        padding-top: 150px;
+        padding-top: 100px;
     }
   .hero-grid {
     display: flex !important;           /* ensures flexbox */
@@ -977,7 +1046,21 @@ img.img-fluid {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 10px;
 }
-
+@media (max-width: 575.98px) {
+    .park-section .gallery-grid {
+        grid-template-columns: 1fr !important;
+        gap: 14px;
+    }
+    .gallery-card{
+        height: 300px !important;
+    }
+}
+@media (min-width: 576px) and (max-width: 991.98px) {
+    .park-section .gallery-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 18px;
+    }
+}
 @media (min-width: 576px) {
 
     .section-grid,
